@@ -1,25 +1,68 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const x = (clientX / window.innerWidth - 0.5) * 20;
-      const y = (clientY / window.innerHeight - 0.5) * 20;
-      setMousePos({ x, y });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const [isPressing, setIsPressing] = useState(false);
+  const isUpdating = useRef(false);
+  const smoothedPos = useRef({ x: 0, y: 0 });
+
+  const handleMouseDown = () => {
+    setIsPressing(true);
+    if (videoRef.current) videoRef.current.pause();
+  };
+
+  const handleMouseUp = () => {
+    setIsPressing(false);
+    if (videoRef.current) videoRef.current.play();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current || !videoRef.current || !videoRef.current.duration || isUpdating.current) return;
+
+    isUpdating.current = true;
+    requestAnimationFrame(() => {
+      if (!containerRef.current || !videoRef.current) {
+        isUpdating.current = false;
+        return;
+      }
+      
+      const rect = containerRef.current.getBoundingClientRect();
+      const targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
+      const targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 30;
+
+      // LERP for smooth motion (factor 0.1 for high smoothness)
+      smoothedPos.current.x += (targetX - smoothedPos.current.x) * 0.15;
+      smoothedPos.current.y += (targetY - smoothedPos.current.y) * 0.15;
+      
+      setMousePos({ x: smoothedPos.current.x, y: smoothedPos.current.y });
+
+      if (isPressing) {
+        const progress = (e.clientX - rect.left) / rect.width;
+        const targetTime = Math.max(0, Math.min(progress * videoRef.current.duration, videoRef.current.duration));
+        // Direct assignment is still needed for scrubbing, but smoothing mousePos helps parallax
+        videoRef.current.currentTime = targetTime;
+      }
+      
+      isUpdating.current = false;
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+    setIsPressing(false);
+    if (videoRef.current) videoRef.current.play();
+  };
 
   if (!mounted) return null;
 
@@ -84,20 +127,29 @@ export default function Hero() {
           </h1>
         </div>
 
-        {/* Right Column: 3D Video */}
+        {/* Right Column: 3D Video Container */}
         <div className="relative flex justify-center lg:justify-end animate-fade-in order-1 lg:order-2" style={{ animationDelay: '0.3s' }}>
           <div 
-            className="relative w-full max-w-[300px] md:max-w-[400px] aspect-square flex items-center justify-center transition-transform duration-700 ease-out pointer-events-none"
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            className={`relative w-full max-w-[300px] md:max-w-[400px] aspect-square flex items-center justify-center ease-out group ${isPressing ? 'cursor-grabbing' : 'cursor-grab'}`}
             style={{ 
               transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0) rotateX(${-mousePos.y * 0.5}deg) rotateY(${mousePos.x * 0.5}deg)` 
             }}
           >
+            {/* Area Indicator */}
+            <div className={`absolute inset-0 border border-white/10 rounded-full scale-110 transition-all duration-300 ${isPressing ? 'opacity-100 scale-100 border-white/30' : 'opacity-0 group-hover:opacity-100'}`} />
+            
             <video 
-              autoPlay 
+              ref={videoRef}
+              autoPlay
+              loop
               muted 
-              loop 
               playsInline 
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain pointer-events-none"
               style={{ mixBlendMode: 'screen' }}
             >
               <source src="/circle.mp4" type="video/mp4" />
