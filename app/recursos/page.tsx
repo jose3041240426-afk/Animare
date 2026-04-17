@@ -132,6 +132,7 @@ export default function RecursosPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+          {/* Recurso 1: Botón Elegante */}
           <Link
             href="/recursos/boton-elegante"
             className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
@@ -139,21 +140,52 @@ export default function RecursosPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10">
               <button
-                onClick={(e) => e.preventDefault()}
-                className="
-                  px-8 py-3 
-                  bg-white text-black 
-                  rounded-full font-medium 
-                  text-sm uppercase tracking-widest
-                  transition-all duration-300
-                  hover:scale-110 
-                  active:scale-90 active:rotate-3
-                  hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]
-                  cursor-default
-                "
+                className="px-8 py-3 bg-white text-black rounded-full font-medium text-sm uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-90 active:rotate-3 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] cursor-default"
               >
                 boton
               </button>
+              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+            </div>
+          </Link>
+
+          {/* Recurso 2: Botón Neón */}
+          <Link
+            href="/recursos/boton-neon"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#a855f715] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="flex flex-col items-center gap-6 z-10">
+              <div className="px-8 py-3 border-2 border-[#a855f7] rounded-lg text-[#a855f7] font-medium text-sm uppercase tracking-widest">
+                Neón
+              </div>
+              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+            </div>
+          </Link>
+
+          {/* Recurso 3: Botón Glass */}
+          <Link
+            href="/recursos/boton-glass"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="flex flex-col items-center gap-6 z-10">
+              <div className="flex items-center gap-2 px-8 py-3 bg-red-600/40 backdrop-blur-md border border-white/20 rounded-2xl text-black font-medium text-sm uppercase tracking-widest">
+                Glass
+              </div>
+              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+            </div>
+          </Link>
+
+          {/* Recurso 4: Botón Slide */}
+          <Link
+            href="/recursos/boton-slide"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f615] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="flex flex-col items-center gap-6 z-10">
+              <div className="px-8 py-3 bg-[#18181b] border border-white/10 rounded-full text-white font-medium text-sm uppercase tracking-widest">
+                Explorar
+              </div>
               <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
             </div>
           </Link>
