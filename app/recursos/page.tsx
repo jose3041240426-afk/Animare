@@ -138,13 +138,16 @@ export default function RecursosPage() {
             className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex flex-col items-center gap-6 z-10">
+            <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
               <button
-                className="px-8 py-3 bg-white text-black rounded-full font-medium text-sm uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-90 active:rotate-3 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] cursor-default"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                className="px-8 py-3 bg-white text-black rounded-full font-medium text-sm uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 active:rotate-3 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] cursor-default"
               >
                 boton
               </button>
-              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 group-hover:text-white transition-all duration-500 mt-2 py-2 px-4 rounded-full border border-white/0 group-hover:border-white/10 group-hover:bg-white/5">
+                Ver recurso
+              </span>
             </div>
           </Link>
 
@@ -154,11 +157,17 @@ export default function RecursosPage() {
             className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#a855f715] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex flex-col items-center gap-6 z-10">
-              <div className="px-8 py-3 border-2 border-[#a855f7] rounded-lg text-[#a855f7] font-medium text-sm uppercase tracking-widest">
-                Neón
+            <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
+              <div 
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                className="relative px-8 py-3 border-2 border-[#a855f7] rounded-lg text-[#a855f7] font-medium text-sm uppercase tracking-widest overflow-hidden transition-all duration-500 hover:text-white hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105 cursor-default group/neon-btn"
+              >
+                <div className="absolute inset-0 bg-[#a855f7] translate-x-[-101%] group-hover/neon-btn:translate-x-0 transition-transform duration-300" />
+                <span className="relative z-10">Neón</span>
               </div>
-              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 group-hover:text-white transition-all duration-500 mt-2 py-2 px-4 rounded-full border border-white/0 group-hover:border-white/10 group-hover:bg-white/5">
+                Ver recurso
+              </span>
             </div>
           </Link>
 
@@ -167,12 +176,19 @@ export default function RecursosPage() {
             href="/recursos/boton-glass"
             className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex flex-col items-center gap-6 z-10">
-              <div className="flex items-center gap-2 px-8 py-3 bg-red-600/40 backdrop-blur-md border border-white/20 rounded-2xl text-black font-medium text-sm uppercase tracking-widest">
+            <div className="absolute top-1/3 left-1/3 w-20 h-20 bg-red-500/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
+              <div 
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white font-medium text-sm uppercase tracking-widest transition-all duration-500 hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-2xl cursor-default"
+              >
                 Glass
               </div>
-              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 group-hover:text-white transition-all duration-500 mt-2 py-2 px-4 rounded-full border border-white/0 group-hover:border-white/10 group-hover:bg-white/5">
+                Ver recurso
+              </span>
             </div>
           </Link>
 
@@ -182,11 +198,17 @@ export default function RecursosPage() {
             className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f615] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex flex-col items-center gap-6 z-10">
-              <div className="px-8 py-3 bg-[#18181b] border border-white/10 rounded-full text-white font-medium text-sm uppercase tracking-widest">
-                Explorar
+            <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
+              <div 
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                className="relative px-8 py-3 bg-[#18181b] border border-white/10 rounded-full text-white font-medium text-sm uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 cursor-default group/btn"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500" />
+                <span className="relative z-10">Explorar</span>
               </div>
-              <span className="text-xs uppercase tracking-widest text-white/40 group-hover:text-white/60 transition-colors">Ver recurso</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 group-hover:text-white transition-all duration-500 mt-2 py-2 px-4 rounded-full border border-white/0 group-hover:border-white/10 group-hover:bg-white/5">
+                Ver recurso
+              </span>
             </div>
           </Link>
         </div>
