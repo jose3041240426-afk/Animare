@@ -142,3 +142,50 @@ body {
   top: 20px;
   left: 5px;
 }
+
+/* Scrollbar Styles */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Custom Editor Scrollbar */
+.scroll-editor {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.scroll-editor::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scroll-editor::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+
+.scroll-editor::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.scroll-editor:hover::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}

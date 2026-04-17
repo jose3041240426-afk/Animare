@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 import StarButton from "./StarButton";
 
 export default function Hero() {
@@ -77,12 +78,18 @@ export default function Hero() {
         
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-12 text-sm uppercase tracking-[0.2em] font-light text-white/70 flex-grow justify-center -ml-16">
-          {['inicio', 'recursos', 'plantillas'].map((item) => (
-            <button key={item} className="relative group hover:text-white transition-colors duration-500">
-              {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
-            </button>
-          ))}
+          <Link href="/" className="relative group hover:text-white transition-colors duration-500">
+            inicio
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
+          </Link>
+          <Link href="/recursos" className="relative group hover:text-white transition-colors duration-500">
+            recursos
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
+          </Link>
+          <button className="relative group hover:text-white transition-colors duration-500">
+            plantillas
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
+          </button>
         </nav>
 
         {/* Burger Button */}
@@ -104,15 +111,15 @@ export default function Hero() {
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-black z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <nav className="flex flex-col gap-8 text-center">
-          {['inicio', 'recursos', 'plantillas'].map((item) => (
-            <button 
-              key={item} 
-              onClick={() => setMenuOpen(false)}
-              className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors"
-            >
-              {item}
-            </button>
-          ))}
+          <Link href="/" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            inicio
+          </Link>
+          <Link href="/recursos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            recursos
+          </Link>
+          <button onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            plantillas
+          </button>
         </nav>
       </div>
 
