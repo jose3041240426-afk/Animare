@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import StarButton from "./StarButton";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -125,6 +126,7 @@ export default function Hero() {
               proyectos
             </span>
           </h1>
+          <StarButton />
         </div>
 
         {/* Right Column: 3D Video Container */}
