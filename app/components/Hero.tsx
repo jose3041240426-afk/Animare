@@ -86,10 +86,10 @@ export default function Hero() {
             recursos
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
           </Link>
-          <button className="relative group hover:text-white transition-colors duration-500">
-            plantillas
+          <Link href="/proyectos" className="relative group hover:text-white transition-colors duration-500">
+            proyectos
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
-          </button>
+          </Link>
         </nav>
 
         {/* Burger Button */}
@@ -117,9 +117,9 @@ export default function Hero() {
           <Link href="/recursos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
             recursos
           </Link>
-          <button onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
-            plantillas
-          </button>
+          <Link href="/proyectos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            proyectos
+          </Link>
         </nav>
       </div>
 

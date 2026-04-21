@@ -76,10 +76,10 @@ export default function RecursosPage() {
             recursos
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
           </Link>
-          <button className="relative group hover:text-white transition-colors duration-500">
-            plantillas
+          <Link href="/proyectos" className="relative group hover:text-white transition-colors duration-500">
+            proyectos
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
-          </button>
+          </Link>
         </nav>
 
         {/* Burger Button */}
@@ -107,9 +107,9 @@ export default function RecursosPage() {
           <Link href="/recursos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
             recursos
           </Link>
-          <button onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
-            plantillas
-          </button>
+          <Link href="/proyectos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            proyectos
+          </Link>
         </nav>
       </div>
 
@@ -211,6 +211,20 @@ export default function RecursosPage() {
               </span>
             </div>
           </Link>
+
+          {/* Recurso 5: Typewriter */}
+          <Link
+            href="/recursos/efecto-typewriter"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#60a5fa10] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
+              <TypewriterPreview />
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 group-hover:text-white transition-all duration-500 mt-2 py-2 px-4 rounded-full border border-white/0 group-hover:border-white/10 group-hover:bg-white/5">
+                Ver recurso
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -219,5 +233,42 @@ export default function RecursosPage() {
         <span className="text-[10vw] font-bold tracking-tighter select-none">ANIMARE.RECURSOS</span>
       </footer>
     </main>
+  );
+}
+
+function TypewriterPreview() {
+  const [text, setText] = useState("");
+  const fullText = "animare.dev";
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    
+    if (isTyping) {
+      if (text.length < fullText.length) {
+        timeout = setTimeout(() => {
+          setText(fullText.slice(0, text.length + 1));
+        }, 150);
+      } else {
+        timeout = setTimeout(() => setIsTyping(false), 2000);
+      }
+    } else {
+      if (text.length > 0) {
+        timeout = setTimeout(() => {
+          setText(fullText.slice(0, text.length - 1));
+        }, 100);
+      } else {
+        timeout = setTimeout(() => setIsTyping(true), 500);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, isTyping]);
+
+  return (
+    <div className="flex items-center gap-[2px] font-mono text-2xl font-bold bg-gradient-to-r from-[#e0f0ff] to-[#7bc5ff] bg-clip-text text-transparent min-h-[1.5em]">
+      <span>{text}</span>
+      <span className="w-[3px] h-[1.2em] bg-[#3a86ff] animate-pulse"></span>
+    </div>
   );
 }
