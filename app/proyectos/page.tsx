@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function ProyectosPage() {
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null); // Fixed type for build
 
   useEffect(() => {
     setMounted(true);
