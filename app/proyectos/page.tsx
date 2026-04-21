@@ -195,7 +195,7 @@ export default function ProyectosPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {projects.map((proj) => (
+          {projects.map((proj: any) => (
             <div 
               key={proj.id}
               className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-8 md:p-12 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/20 cursor-pointer flex flex-col justify-between h-full"
@@ -225,7 +225,7 @@ export default function ProyectosPage() {
                   {proj.summary}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {proj.tech.backend.slice(0, 2).concat(proj.tech.frontend.slice(0, 1)).map((t, idx) => (
+                  {proj.tech.backend.slice(0, 2).concat(proj.tech.frontend.slice(0, 1)).map((t: string, idx: number) => (
                     <span key={idx} className="text-[10px] uppercase tracking-widest text-white/30 px-3 py-1 rounded-full border border-white/5 bg-white/[0.02]">
                       {t.split(' ')[0]}
                     </span>
@@ -263,17 +263,17 @@ export default function ProyectosPage() {
                   { label: "Frontend", data: selectedProject.tech.frontend, imgs: selectedProject.tech.frontendImages },
                   { label: "Servicios", data: selectedProject.tech.external, imgs: selectedProject.tech.externalImages },
                   { label: "Seguridad", data: selectedProject.tech.security, imgs: null }
-                ].map((col, idx) => (
+                ].map((col: any, idx: number) => (
                   <div key={idx} className="p-6 rounded-3xl bg-white/[0.03] border border-white/5 flex flex-col justify-between min-h-[300px]">
                     <div>
                       <h4 className="text-white/30 uppercase tracking-widest text-[10px] mb-4">{col.label}</h4>
                       <ul className="space-y-2 text-sm">
-                        {col.data?.map((t, i) => <li key={i} className="text-white/80">{t}</li>)}
+                        {col.data?.map((t: string, i: number) => <li key={i} className="text-white/80">{t}</li>)}
                       </ul>
                     </div>
                     {col.imgs && (
                       <div className="mt-8 pt-6 border-t border-white/5 flex justify-center gap-6 items-center">
-                        {col.imgs.map((img, i) => (
+                        {col.imgs.map((img: any, i: number) => (
                           <div key={i} className="group/img relative">
                             <img src={img.url} alt={img.name} className="h-8 md:h-10 w-auto object-contain grayscale opacity-40 group-hover/img:grayscale-0 group-hover/img:opacity-100 transition-all duration-300" />
                           </div>
@@ -287,7 +287,7 @@ export default function ProyectosPage() {
               <div>
                 <h3 className="text-2xl font-semibold mb-12 flex items-center gap-4"><span className="w-12 h-[1px] bg-white/20" />Listado de Pantallas y Funcionalidades</h3>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {selectedProject.screens?.map((screen, idx) => (
+                  {selectedProject.screens?.map((screen: any, idx: number) => (
                     <div key={idx} className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
                       <h4 className="text-xl font-bold mb-6 text-white/70">{screen.name}</h4>
                       {screen.video && (
@@ -303,7 +303,7 @@ export default function ProyectosPage() {
                         </div>
                       )}
                       <ul className="space-y-3">
-                        {screen.features?.map((feat, fIdx) => (
+                        {screen.features?.map((feat: string, fIdx: number) => (
                           <li key={fIdx} className="flex items-start gap-3 text-white/40 text-sm">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />{feat}
                           </li>
@@ -317,7 +317,7 @@ export default function ProyectosPage() {
               <div className="pt-12 border-t border-white/5">
                 <h3 className="text-2xl font-semibold mb-10">Características Técnicas Destacadas</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {selectedProject.technicalHighlights?.map((highlight, idx) => (
+                  {selectedProject.technicalHighlights?.map((highlight: any, idx: number) => (
                     <div key={idx} className="p-6 rounded-2xl bg-white/5 border border-white/10">
                       <h5 className="font-bold text-white mb-2">{highlight.key}</h5>
                       <p className="text-white/40 text-sm leading-relaxed">{highlight.val}</p>
