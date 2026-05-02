@@ -142,11 +142,14 @@ export default function TypewriterDetallePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-blue-500/20">
+    <main className="min-h-screen bg-transparent text-white font-sans selection:bg-blue-500/20">
       <nav className="p-6 border-b border-white/5 flex justify-between items-center backdrop-blur-md sticky top-0 z-50">
         <Link href="/recursos" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm uppercase tracking-widest">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
           Volver
+        </Link>
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2 font-bold tracking-[0.2em] text-sm hover:opacity-50 transition-opacity">
+          <span className="text-red-500">A</span>NIMARE
         </Link>
         <div className="text-xs uppercase tracking-[0.3em] font-bold text-white/20">Recurso #05</div>
       </nav>
@@ -154,14 +157,14 @@ export default function TypewriterDetallePage() {
       <div className="container mx-auto px-6 py-12 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="flex flex-col gap-6 h-full">
-            <div>
+            <div className="animate-slide-up">
               <h1 className="text-4xl font-light tracking-tight mb-4">Typewriter Loop</h1>
               <p className="text-white/40 font-light leading-relaxed">
                 Efecto de escritura dinámica con borrado automático y loop infinito. Utiliza un cursor personalizable y una estética de cristal translúcido (Glassmorphism).
               </p>
             </div>
 
-            <div className="bg-[#080808] border border-white/10 rounded-[3rem] flex items-center justify-center relative overflow-hidden min-h-[400px] flex-1">
+            <div className="bg-[#080808] border border-white/10 rounded-[3rem] flex items-center justify-center relative overflow-hidden min-h-[400px] flex-1 animate-slide-up" style={{ animationDelay: '150ms' }}>
               <iframe
                 key={`${typingText}-${showBackground}-${accentColor}-${useGradient}-${alignment}`}
                 srcDoc={`
@@ -191,7 +194,7 @@ export default function TypewriterDetallePage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 h-full">
+          <div className="flex flex-col gap-4 h-full animate-slide-up" style={{ animationDelay: '300ms' }}>
             <div className="p-6 bg-white/[0.03] border border-white/5 rounded-2xl space-y-6">
               <div className="flex flex-col gap-3">
                 <label className="text-[10px] uppercase tracking-widest text-white/40">Texto del Efecto</label>

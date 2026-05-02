@@ -18,7 +18,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white">
+    <section className="py-24 bg-transparent text-white">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {features.map((feature, index) => (

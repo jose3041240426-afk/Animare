@@ -3,77 +3,27 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import StarButton from "./StarButton";
+import TechBackground from "./TechBackground";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const [isPressing, setIsPressing] = useState(false);
-  const isUpdating = useRef(false);
-  const smoothedPos = useRef({ x: 0, y: 0 });
-
-  const handleMouseDown = () => {
-    setIsPressing(true);
-    if (videoRef.current) videoRef.current.pause();
-  };
-
-  const handleMouseUp = () => {
-    setIsPressing(false);
-    if (videoRef.current) videoRef.current.play();
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current || !videoRef.current || !videoRef.current.duration || isUpdating.current) return;
-
-    isUpdating.current = true;
-    requestAnimationFrame(() => {
-      if (!containerRef.current || !videoRef.current) {
-        isUpdating.current = false;
-        return;
-      }
-      
-      const rect = containerRef.current.getBoundingClientRect();
-      const targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
-      const targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 30;
-
-      // LERP for smooth motion (factor 0.1 for high smoothness)
-      smoothedPos.current.x += (targetX - smoothedPos.current.x) * 0.15;
-      smoothedPos.current.y += (targetY - smoothedPos.current.y) * 0.15;
-      
-      setMousePos({ x: smoothedPos.current.x, y: smoothedPos.current.y });
-
-      if (isPressing) {
-        const progress = (e.clientX - rect.left) / rect.width;
-        const targetTime = Math.max(0, Math.min(progress * videoRef.current.duration, videoRef.current.duration));
-        // Direct assignment is still needed for scrubbing, but smoothing mousePos helps parallax
-        videoRef.current.currentTime = targetTime;
-      }
-      
-      isUpdating.current = false;
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setMousePos({ x: 0, y: 0 });
-    setIsPressing(false);
-    if (videoRef.current) videoRef.current.play();
-  };
-
   if (!mounted) return null;
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center bg-transparent overflow-hidden">
+      <TechBackground className="absolute" />
       {/* Navigation Header */}
       <header className="absolute top-0 left-0 w-full p-6 md:p-8 z-50 flex items-center justify-between">
         <div className="flex items-center">
-          <span className="text-xl font-bold tracking-[0.3em] text-white">ANIMARE</span>
+          <span className="text-xl font-bold tracking-[0.3em] text-white">
+            <span className="text-red-500">A</span>NIMARE
+          </span>
         </div>
         
         {/* Desktop Nav */}
@@ -99,7 +49,7 @@ export default function Hero() {
               type="checkbox" 
               id="burger" 
               checked={menuOpen} 
-              onChange={() => setMenuOpen(!menuOpen)} 
+              onChange={() => setMenuOpen(!menuOpen)}
             />
             <span></span>
             <span></span>
@@ -108,63 +58,36 @@ export default function Hero() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-black z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <nav className="flex flex-col gap-8 text-center">
-          <Link href="/" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
-            inicio
-          </Link>
-          <Link href="/recursos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
-            recursos
-          </Link>
-          <Link href="/proyectos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
-            proyectos
-          </Link>
-        </nav>
-      </div>
-
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 flex-grow py-24">
-        
-        {/* Left Column: Simple Elegant Text */}
-        <div className="text-center lg:text-left animate-fade-in order-2 lg:order-1">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight text-white opacity-90">
-            Dale vida a tus <br /> 
-            <span className="font-semibold text-white">
-              proyectos
-            </span>
-          </h1>
-          <StarButton />
-        </div>
-
-        {/* Right Column: 3D Video Container */}
-        <div className="relative flex justify-center lg:justify-end animate-fade-in order-1 lg:order-2" style={{ animationDelay: '0.3s' }}>
-          <div 
-            ref={containerRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            className={`relative w-full max-w-[300px] md:max-w-[400px] aspect-square flex items-center justify-center ease-out group ${isPressing ? 'cursor-grabbing' : 'cursor-grab'}`}
-            style={{ 
-              transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0) rotateX(${-mousePos.y * 0.5}deg) rotateY(${mousePos.x * 0.5}deg)` 
-            }}
-          >
-            {/* Area Indicator */}
-            <div className={`absolute inset-0 border border-white/10 rounded-full scale-110 transition-all duration-300 ${isPressing ? 'opacity-100 scale-100 border-white/30' : 'opacity-0 group-hover:opacity-100'}`} />
+      {/* Hero Content */}
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+        <div className="max-w-4xl space-y-12">
+          {/* Main Title with Staggered Animation */}
+          <div className="space-y-6">
             
-            <video 
-              ref={videoRef}
-              autoPlay
-              loop
-              muted 
-              playsInline 
-              className="w-full h-full object-contain pointer-events-none"
-              style={{ mixBlendMode: 'screen' }}
+            <h1 className="text-[12vw] lg:text-[10vw] font-bold leading-[0.8] tracking-tighter text-white animate-slide-up">
+              DAMOS <br />
+              <span className="font-light italic text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]">VIDA</span>
+            </h1>
+            
+            <p className="text-white/40 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '100ms' }}>
+              Creamos <span className="text-white">experiencias</span> digitales de <span className="text-white">alto impacto</span> mediante <span className="text-white">software</span> de <span className="text-white">vanguardia</span> y <span className="text-white">diseño</span> técnico de <span className="text-white">precisión</span>.
+            </p>
+          </div>
+
+          <div className="flex justify-center animate-slide-up" style={{ animationDelay: '200ms' }}>
+            <Link 
+              href="/proyectos" 
+              className="text-[10px] uppercase tracking-[0.4em] text-white bg-red-600 hover:bg-red-500 transition-all duration-500 py-5 px-12 rounded-full shadow-[0_0_30px_rgba(239,68,68,0.3)] hover:shadow-[0_0_50px_rgba(239,68,68,0.5)] border border-red-400/50"
             >
-              <source src="/circle.mp4" type="video/mp4" />
-            </video>
+              ver proyectos
+            </Link>
           </div>
         </div>
+      </div>
+
+      {/* Decorative Background Elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-20">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px]" />
       </div>
     </section>
   );

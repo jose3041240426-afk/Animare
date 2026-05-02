@@ -46,11 +46,11 @@ export default function ScrollText() {
     };
   }, []);
 
-  const text = "Animaciones, componentes y recursos para developers que quieren crear interfaces modernas y llenas de vida.";
+  const text = "Somos una empresa de software y recursos para developers que quieren crear interfaces modernas y llenas de vida.";
   const words = text.split(" ");
 
   return (
-    <section className="min-h-screen bg-black flex items-center justify-center px-6 md:px-12 py-20 relative overflow-hidden">
+    <section className="min-h-screen bg-transparent flex items-center justify-center px-6 md:px-12 py-20 relative overflow-hidden">
       {/* Brillo suave en el fondo para que se vea más premium */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -59,7 +59,7 @@ export default function ScrollText() {
         className="max-w-6xl mx-auto flex flex-wrap justify-center items-center text-center gap-x-2 md:gap-x-4 lg:gap-x-5 gap-y-2 md:gap-y-4 relative z-10 h-full"
       >
         {words.map((word, index) => {
-          const isHighlight = ["Animaciones,", "developers", "modernas", "vida."].includes(word);
+          const isHighlight = ["software", "developers", "modernas", "vida."].includes(word);
           
           // La animación se basa en si es visible y la dirección del scroll
           // Si está desapareciendo hacia arriba, se va a -100%. Si hacia abajo, a 100%

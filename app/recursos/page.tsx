@@ -57,12 +57,12 @@ export default function RecursosPage() {
   if (!mounted) return null;
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+    <main className="min-h-screen bg-transparent text-white selection:bg-white selection:text-black">
       {/* Header igual al de la página principal */}
       <header className="absolute top-0 left-0 w-full p-6 md:p-8 z-50 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="text-xl font-bold tracking-[0.3em] text-white hover:opacity-50 transition-opacity">
-            ANIMARE
+            <span className="text-red-500">A</span>NIMARE
           </Link>
         </div>
 
@@ -115,11 +115,11 @@ export default function RecursosPage() {
 
       <div className="container mx-auto px-6 py-24">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8 animate-slide-up">
             Recursos <br />
             <span className="font-semibold italic text-white/90">Creativos</span>
           </h1>
-          <p className="text-white/40 text-xl font-light leading-relaxed max-w-2xl animate-fade-in [--animation-delay:200ms]">
+          <p className="text-white/40 text-xl font-light leading-relaxed max-w-2xl animate-slide-up" style={{ animationDelay: '150ms' }}>
             Herramientas y activos diseñados para elevar la calidad visual de tus proyectos digitales.
           </p>
         </div>
@@ -135,7 +135,8 @@ export default function RecursosPage() {
           {/* Recurso 1: Botón Elegante */}
           <Link
             href="/recursos/boton-elegante"
-            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer animate-slide-up"
+            style={{ animationDelay: '300ms' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
@@ -154,7 +155,8 @@ export default function RecursosPage() {
           {/* Recurso 2: Botón Neón */}
           <Link
             href="/recursos/boton-neon"
-            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer animate-slide-up"
+            style={{ animationDelay: '450ms' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#a855f715] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
@@ -174,7 +176,8 @@ export default function RecursosPage() {
           {/* Recurso 3: Botón Glass */}
           <Link
             href="/recursos/boton-glass"
-            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer animate-slide-up"
+            style={{ animationDelay: '600ms' }}
           >
             <div className="absolute top-1/3 left-1/3 w-20 h-20 bg-red-500/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -195,7 +198,8 @@ export default function RecursosPage() {
           {/* Recurso 4: Botón Slide */}
           <Link
             href="/recursos/boton-slide"
-            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer animate-slide-up"
+            style={{ animationDelay: '750ms' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f615] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
@@ -215,7 +219,8 @@ export default function RecursosPage() {
           {/* Recurso 5: Typewriter */}
           <Link
             href="/recursos/efecto-typewriter"
-            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer"
+            className="aspect-square bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden group hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 flex items-center justify-center cursor-pointer animate-slide-up"
+            style={{ animationDelay: '900ms' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#60a5fa10] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
@@ -230,7 +235,7 @@ export default function RecursosPage() {
 
       {/* Footer Decoration */}
       <footer className="py-24 border-t border-white/5 flex items-center justify-center opacity-20">
-        <span className="text-[10vw] font-bold tracking-tighter select-none">ANIMARE.RECURSOS</span>
+        <span className="text-[10vw] font-bold tracking-tighter select-none"><span className="text-red-500">A</span>NIMARE.RECURSOS</span>
       </footer>
     </main>
   );

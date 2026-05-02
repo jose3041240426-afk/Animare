@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Prata, Inter } from "next/font/google";
 import "./globals.css";
+import GlassBackground from "./components/GlassBackground";
+import Footer from "./components/Footer";
+
 
 const prata = Prata({
   subsets: ["latin"],
@@ -29,8 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${prata.variable} antialiased`}>
+        <GlassBackground />
         <div className="noise-overlay" />
         {children}
+        <Footer />
       </body>
     </html>
   );

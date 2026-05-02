@@ -112,6 +112,9 @@ export default function BotonSlidePage() {
           </svg>
           Volver
         </Link>
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2 font-bold tracking-[0.2em] text-sm hover:opacity-50 transition-opacity">
+          <span className="text-red-500">A</span>NIMARE
+        </Link>
         <div className="text-xs uppercase tracking-[0.3em] font-bold text-white/20">Recurso #04</div>
       </nav>
 

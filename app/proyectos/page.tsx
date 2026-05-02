@@ -93,61 +93,16 @@ export default function ProyectosPage() {
         { key: "Gestión de Mapas", val: "Integración Leaflet + LocationIQ para envíos precisos." }
       ],
       presentation: "Section.80 es mi proyecto personal de e-commerce de streetwear. Cuenta con autenticación segura mediante JWT con refresh tokens en cookies httpOnly, panel de administración en tiempo real, sistema de reseñas, carrito de compras interactivo, integración con mapas para selección de envío, y subida de imágenes a Cloudinary con firmas seguras."
-    },
-    /* {
-      id: "expansiontech",
-      title: "ExpansionTech",
-      subtitle: "App Móvil de Tecnología",
-      tag: "Native Mobile App",
-      description: "ExpansionTech es una aplicación de comercio electrónico nativa para iOS y Android, enfocada en la venta de productos tecnológicos de vanguardia. Diseñada con una arquitectura móvil moderna, ofrece una experiencia de compra fluida y optimizada para dispositivos táctiles.",
-      summary: "Aplicación móvil multiplataforma con integración completa de Supabase, gestión de carrito local, sistema de reseñas y checkout animado con tarjeta de crédito virtual.",
-      tech: {
-        backend: ["Supabase (PostgreSQL)", "Supabase Auth", "Supabase Storage"],
-        backendImages: [
-          { name: "Supabase", url: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Supabase_logo.svg" },
-          { name: "PostgreSQL", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_classic.svg" },
-          { name: "Storage", url: "https://avatars.githubusercontent.com/u/54469796?s=200&v=4" }
-        ],
-        frontend: ["React Native 0.81.5", "Expo 54", "Animated API", "React Navigation 7"],
-        frontendImages: [
-          { name: "React Native", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" },
-          { name: "Expo", url: "https://www.svgrepo.com/show/353724/expo-icon.svg" },
-          { name: "React Navigation", url: "https://reactnavigation.org/img/spiro.svg" }
-        ],
-        external: ["AsyncStorage", "Expo Image Picker", "CryptoJS"],
-        externalImages: [
-          { name: "Expo", url: "https://www.svgrepo.com/show/353724/expo-icon.svg" },
-          { name: "CryptoJS", url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Yw9N1-C7h8eE-YREcKx0s0Vf-Y6Y0S9Yfg&s" },
-          { name: "Async", url: "https://avatars.githubusercontent.com/u/31754024?s=200&v=4" }
-        ],
-        security: ["AES Encryption (CryptoJS)", "Supabase RLS", "Auth Persistance"]
-      },
-      screens: [
-        { name: "Autenticación", features: ["Login/Registro con Supabase", "Fondo oscuro estilizado", "Manejo de errores con Alert"] },
-        { name: "Pantalla de Inicio", features: ["Búsqueda con autocompletado", "Banner animado", "Chips de categorías dinámicos"] },
-        { name: "Lista de Productos", features: ["Grid de 2 columnas optimizado", "Paginación virtual (FlatList)", "Sincronización de favoritos"] },
-        { name: "Detalle de Producto", features: ["Sistema de pestañas (Tabs)", "Reseñas con estrellas (1-5)", "Preguntas y respuestas admin"] },
-        { name: "Carrito y Checkout", features: ["Agrupación de productos", "Tarjeta de crédito FlipCard", "Swipe to Pay (Deslizador)"] },
-        { name: "Perfil de Usuario", features: ["Gestión de avatar (Storage)", "Historial de pedidos real-time", "Sincronización automática"] },
-        { name: "Favoritos y Ajustes", features: ["Grid de favoritos", "Modo Oscuro/Claro persistente", "Gestión de datos sensibles"] },
-        { name: "Dirección y Envío", features: ["Formulario validado", "Placeholder de mapa", "Integración con user_addresses"] }
-      ],
-      technicalHighlights: [
-        { key: "Supabase Stack", val: "Uso integral de Auth, Database y Storage para una arquitectura Serverless." },
-        { key: "UX Móvil", val: "Checkout animado 'Swipe to Pay' y tarjeta FlipCard interactiva." },
-        { key: "Persistencia", val: "Gestión híbrida de datos entre Supabase y AsyncStorage para modo offline." }
-      ],
-      presentation: "ExpansionTech es mi aplicación móvil nativa de e-commerce. Utiliza React Native con Expo y Supabase para el backend. Destaca por su sistema de checkout animado, persistencia de datos local y una interfaz moderna con soporte para modo oscuro, demostrando un dominio completo del ecosistema móvil actual."
-    } */
+    }
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans">
+    <main className="min-h-screen bg-transparent text-white selection:bg-white selection:text-black font-sans">
       {/* Header */}
       <header className="absolute top-0 left-0 w-full p-6 md:p-8 z-50 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="text-xl font-bold tracking-[0.3em] text-white hover:opacity-50 transition-opacity">
-            ANIMARE
+            <span className="text-red-500">A</span>NIMARE
           </Link>
         </div>
 
@@ -185,20 +140,21 @@ export default function ProyectosPage() {
 
       <div className="container mx-auto px-6 py-32">
         <div className="max-w-4xl mb-20">
-          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8 animate-slide-up">
             Nuestros <br />
-            <span className="font-semibold italic text-white/90">Proyectos</span>
+            <span className="font-semibold italic text-red-500">Proyectos</span>
           </h1>
-          <p className="text-white/40 text-xl font-light leading-relaxed max-w-2xl">
+          <p className="text-white/40 text-xl font-light leading-relaxed max-w-2xl animate-slide-up" style={{ animationDelay: '200ms' }}>
             Explora nuestras creaciones destacadas, desde plataformas de e-commerce hasta experiencias interactivas de vanguardia.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {projects.map((proj: any) => (
+          {projects.map((proj: any, index: number) => (
             <div 
               key={proj.id}
-              className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-8 md:p-12 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/20 cursor-pointer flex flex-col justify-between h-full"
+              className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 md:p-12 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/20 cursor-pointer flex flex-col justify-between h-full animate-slide-up"
+              style={{ animationDelay: `${400 + index * 150}ms` }}
               onClick={() => setSelectedProject(proj)}
             >
               <div className="mb-12">
