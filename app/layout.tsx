@@ -19,9 +19,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Animare",
   description: "A state-of-the-art interactive platform designed for visual excellence.",
-  icons: {
-    icon: "/logo.png",
-  },
 };
 
 export default function RootLayout({

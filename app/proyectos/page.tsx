@@ -44,47 +44,47 @@ export default function ProyectosPage() {
         security: ["Rate limiting", "refresh tokens rotativos", "subidas firmadas a Cloudinary"]
       },
       screens: [
-        { 
-          name: "1. Pantalla de Login / Registro", 
+        {
+          name: "1. Pantalla de Login / Registro",
           video: "/Login.mp4",
-          features: ["Interfaz con efecto slider (overlay)", "Fondo animado con estrellas", "Encriptación con bcrypt", "Entrada como invitado"] 
+          features: ["Interfaz con efecto slider (overlay)", "Fondo animado con estrellas", "Encriptación con bcrypt", "Entrada como invitado"]
         },
-        { 
-          name: "2. Pantalla de Inicio", 
+        {
+          name: "2. Pantalla de Inicio",
           video: "/Home.mp4",
           features: [
-            "Hero slider con Swiper.js", 
-            "Efecto parallax con GSAP", 
-            "Modelo 3D de gorra", 
+            "Hero slider con Swiper.js",
+            "Efecto parallax con GSAP",
+            "Modelo 3D de gorra",
             "Modo oscuro/claro persistente",
             "Navbar inteligente y dinámico"
-          ] 
+          ]
         },
-        { 
-          name: "3. Catálogo de Productos", 
+        {
+          name: "3. Catálogo de Productos",
           video: "/Catalogo.mp4",
           features: [
-            "Grid responsivo glassmorphism", 
+            "Grid responsivo glassmorphism",
             "Filtros avanzados y paginación animada",
-            "Vista de detalle con efecto zoom y modal", 
+            "Vista de detalle con efecto zoom y modal",
             "Sistema de reseñas y calificación por estrellas",
             "Notificaciones Toast modernas"
-          ] 
+          ]
         },
-        { 
-          name: "4. Carrito de Compras", 
+        {
+          name: "4. Carrito de Compras",
           video: "/Carrito.mp4",
-          features: ["Modelo 3D de carrito", "Checkout con Leaflet", "Buscador LocationIQ", "Billetera virtual"] 
+          features: ["Modelo 3D de carrito", "Checkout con Leaflet", "Buscador LocationIQ", "Billetera virtual"]
         },
-        { 
-          name: "5. Perfil de Usuario", 
+        {
+          name: "5. Perfil de Usuario",
           video: "/Profile.mp4",
-          features: ["Dashboard con fotos", "Historial expansible", "Efecto wallet interactivo"] 
+          features: ["Dashboard con fotos", "Historial expansible", "Efecto wallet interactivo"]
         },
-        { 
-          name: "6. Panel de Administración", 
+        {
+          name: "6. Panel de Administración",
           video: "/Administrar.mp4",
-          features: ["Protección de rol real-time", "Gestión de stock/pedidos", "Subida Cloudinary"] 
+          features: ["Protección de rol real-time", "Gestión de stock/pedidos", "Subida Cloudinary"]
         }
       ],
       technicalHighlights: [
@@ -156,7 +156,7 @@ export default function ProyectosPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {projects.map((proj: any, index: number) => (
-            <div 
+            <div
               key={proj.id}
               className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 md:p-12 transition-all duration-700 hover:bg-white/[0.04] hover:border-white/20 cursor-pointer flex flex-col justify-between h-full animate-slide-up"
               style={{ animationDelay: `${400 + index * 150}ms` }}
@@ -203,7 +203,7 @@ export default function ProyectosPage() {
       {/* Project Detail Modal */}
       <div className={`fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 transition-all duration-700 ${selectedProject ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="absolute inset-0 bg-black/90 backdrop-blur-3xl" onClick={() => setSelectedProject(null)} />
-        
+
         <div className={`relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a] border border-white/10 rounded-[3rem] p-8 md:p-16 transition-all duration-700 custom-scrollbar ${selectedProject ? 'scale-100 translate-y-0' : 'scale-95 translate-y-12'}`}>
           <button className="absolute top-8 right-8 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 z-10" onClick={() => setSelectedProject(null)}>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -253,12 +253,12 @@ export default function ProyectosPage() {
                       <h4 className="text-xl font-bold mb-6 text-white/70">{screen.name}</h4>
                       {screen.video && (
                         <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 bg-black aspect-video">
-                          <video 
-                            src={screen.video} 
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline 
+                          <video
+                            src={screen.video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             className="w-full h-full object-cover"
                           />
                         </div>

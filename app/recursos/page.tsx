@@ -167,7 +167,7 @@ export default function RecursosPage() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#a855f715] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
-              <div 
+              <div
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
                 className="relative px-8 py-3 border-2 border-[#a855f7] rounded-lg text-[#a855f7] font-medium text-sm uppercase tracking-widest overflow-hidden transition-all duration-500 hover:text-white hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105 cursor-default group/neon-btn"
               >
@@ -188,9 +188,9 @@ export default function RecursosPage() {
           >
             <div className="absolute top-1/3 left-1/3 w-20 h-20 bg-red-500/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
+
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
-              <div 
+              <div
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
                 className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white font-medium text-sm uppercase tracking-widest transition-all duration-500 hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-2xl cursor-default"
               >
@@ -210,7 +210,7 @@ export default function RecursosPage() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f615] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex flex-col items-center gap-6 z-10 w-full px-8 text-center">
-              <div 
+              <div
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
                 className="relative px-8 py-3 bg-[#18181b] border border-white/10 rounded-full text-white font-medium text-sm uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 cursor-default group/btn"
               >
@@ -255,7 +255,7 @@ function TypewriterPreview() {
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    
+
     if (isTyping) {
       if (text.length < fullText.length) {
         timeout = setTimeout(() => {

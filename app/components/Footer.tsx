@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="text-red-500">A</span>NIMARE
             </Link>
             <p className="text-white/40 font-light leading-relaxed max-w-xs">
-              Transformando visiones técnicas en realidades digitales de alto impacto. 
+              Transformando visiones técnicas en realidades digitales de alto impacto.
               Software de vanguardia con estética editorial.
             </p>
             <div className="flex gap-6">
@@ -53,8 +53,8 @@ export default function Footer() {
           {/* Support Column */}
           <div className="space-y-8 col-span-2 lg:col-span-1">
             <h4 className="text-[10px] uppercase tracking-widest text-white/20 mb-8">Correo de Soporte</h4>
-            <a 
-              href="mailto:Soporte@animare.dev" 
+            <a
+              href="mailto:Soporte@animare.dev"
               className="inline-block bg-white/[0.03] border border-white/10 rounded-full px-6 py-4 text-sm font-light text-white hover:border-white/30 hover:bg-white/[0.05] transition-all"
             >
               Soporte@animare.dev

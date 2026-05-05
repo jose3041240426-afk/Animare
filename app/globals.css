@@ -30,14 +30,17 @@ body {
     opacity: 0;
     animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+
   .animate-slide-up {
     opacity: 0;
     animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+
   .animate-slide-down {
     opacity: 0;
     animation: slideDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+
   .animate-scale-in {
     opacity: 0;
     animation: scaleIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -45,38 +48,46 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(40px);
   }
-  to { 
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes slideDown {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(-40px);
   }
-  to { 
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes scaleIn {
-  from { 
+  from {
     opacity: 0;
     transform: scale(0.9);
   }
-  to { 
+
+  to {
     opacity: 1;
     transform: scale(1);
   }
@@ -100,17 +111,49 @@ body {
 }
 
 @keyframes noise {
-  0% { transform: translate(0,0) }
-  10% { transform: translate(-5%,-5%) }
-  20% { transform: translate(-10%,5%) }
-  30% { transform: translate(5%,-10%) }
-  40% { transform: translate(-5%,15%) }
-  50% { transform: translate(-10%,5%) }
-  60% { transform: translate(15%,0) }
-  70% { transform: translate(0,10%) }
-  80% { transform: translate(-15%,0) }
-  90% { transform: translate(10%,5%) }
-  100% { transform: translate(5%,0) }
+  0% {
+    transform: translate(0, 0)
+  }
+
+  10% {
+    transform: translate(-5%, -5%)
+  }
+
+  20% {
+    transform: translate(-10%, 5%)
+  }
+
+  30% {
+    transform: translate(5%, -10%)
+  }
+
+  40% {
+    transform: translate(-5%, 15%)
+  }
+
+  50% {
+    transform: translate(-10%, 5%)
+  }
+
+  60% {
+    transform: translate(15%, 0)
+  }
+
+  70% {
+    transform: translate(0, 10%)
+  }
+
+  80% {
+    transform: translate(-15%, 0)
+  }
+
+  90% {
+    transform: translate(10%, 5%)
+  }
+
+  100% {
+    transform: translate(5%, 0)
+  }
 }
 
 /* Burger Menu Styles */
@@ -157,18 +200,18 @@ body {
   transform: translateY(-100%);
 }
 
-.burger input:checked ~ span:nth-of-type(1) {
+.burger input:checked~span:nth-of-type(1) {
   transform: rotate(45deg);
   top: 0px;
   left: 5px;
 }
 
-.burger input:checked ~ span:nth-of-type(2) {
+.burger input:checked~span:nth-of-type(2) {
   width: 0%;
   opacity: 0;
 }
 
-.burger input:checked ~ span:nth-of-type(3) {
+.burger input:checked~span:nth-of-type(3) {
   transform: rotate(-45deg);
   top: 20px;
   left: 5px;
@@ -211,12 +254,12 @@ body {
 }
 
 .scroll-editor::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 100%);
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .scroll-editor:hover::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 100%);
-  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 100%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }

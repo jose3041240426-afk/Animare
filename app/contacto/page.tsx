@@ -27,8 +27,8 @@ export default function ContactoPage() {
       user_name: formState.name, // Variación común
       name: formState.name,      // Otra variación
       from_email: formState.email,
-      reply_to: formState.email, 
-      user_email: formState.email, 
+      reply_to: formState.email,
+      user_email: formState.email,
       message: formState.message,
       to_name: "Animare Team",
     };
@@ -40,7 +40,7 @@ export default function ContactoPage() {
         templateParams,
         "6XAxEDfaVyne0Llde"
       );
-      
+
       setIsSubmitting(false);
       setSubmitted(true);
       setFormState({ name: "", email: "", message: "" });
@@ -148,7 +148,7 @@ export default function ContactoPage() {
           {/* Right Column: Form */}
           <div className="relative animate-slide-up" style={{ animationDelay: '200ms' }}>
             <div className="absolute inset-0 bg-red-500/5 blur-[100px] -z-10 rounded-full" />
-            
+
             <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
               {submitted ? (
                 <div className="py-20 text-center space-y-6 animate-fade-in">
@@ -157,7 +157,7 @@ export default function ContactoPage() {
                   </div>
                   <h3 className="text-3xl font-bold">¡Mensaje Enviado!</h3>
                   <p className="text-white/40">Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.</p>
-                  <button 
+                  <button
                     onClick={() => setSubmitted(false)}
                     className="text-[10px] uppercase tracking-widest text-white/20 hover:text-white transition-colors"
                   >
@@ -169,11 +169,11 @@ export default function ContactoPage() {
                   <div className="space-y-6">
                     <div className="space-y-2 group">
                       <label className="text-[10px] uppercase tracking-widest text-white/20 group-focus-within:text-red-500 transition-colors">Nombre Completo</label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         value={formState.name}
-                        onChange={(e) => setFormState({...formState, name: e.target.value})}
+                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         placeholder="Juan Pérez"
                         className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-red-500/50 transition-all"
                       />
@@ -181,11 +181,11 @@ export default function ContactoPage() {
 
                     <div className="space-y-2 group">
                       <label className="text-[10px] uppercase tracking-widest text-white/20 group-focus-within:text-red-500 transition-colors">Correo Electrónico</label>
-                      <input 
+                      <input
                         required
-                        type="email" 
+                        type="email"
                         value={formState.email}
-                        onChange={(e) => setFormState({...formState, email: e.target.value})}
+                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         placeholder="juan@ejemplo.com"
                         className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-red-500/50 transition-all"
                       />
@@ -193,11 +193,11 @@ export default function ContactoPage() {
 
                     <div className="space-y-2 group">
                       <label className="text-[10px] uppercase tracking-widest text-white/20 group-focus-within:text-red-500 transition-colors">Tu Mensaje</label>
-                      <textarea 
+                      <textarea
                         required
                         rows={4}
                         value={formState.message}
-                        onChange={(e) => setFormState({...formState, message: e.target.value})}
+                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                         placeholder="Cuéntanos sobre tu idea..."
                         className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-red-500/50 transition-all resize-none"
                       />
@@ -208,7 +208,7 @@ export default function ContactoPage() {
                     <p className="text-red-500 text-xs font-light animate-pulse">{error}</p>
                   )}
 
-                  <button 
+                  <button
                     disabled={isSubmitting}
                     className="w-full py-5 bg-red-600 hover:bg-red-500 disabled:bg-red-900 disabled:cursor-not-allowed text-white rounded-2xl font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-[0_0_30px_rgba(239,68,68,0.2)] hover:shadow-[0_0_50px_rgba(239,68,68,0.4)] flex items-center justify-center gap-3"
                   >
