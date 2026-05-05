@@ -80,6 +80,10 @@ export default function RecursosPage() {
             proyectos
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
           </Link>
+          <Link href="/contacto" className="relative group hover:text-white transition-colors duration-500">
+            contacto
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
+          </Link>
         </nav>
 
         {/* Burger Button */}
@@ -110,6 +114,9 @@ export default function RecursosPage() {
           <Link href="/proyectos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
             proyectos
           </Link>
+          <Link href="/contacto" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            contacto
+          </Link>
         </nav>
       </div>
 
@@ -117,7 +124,7 @@ export default function RecursosPage() {
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8 animate-slide-up">
             Recursos <br />
-            <span className="font-semibold italic text-white/90">Creativos</span>
+            <span className="font-semibold italic text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]">Creativos</span>
           </h1>
           <p className="text-white/40 text-xl font-light leading-relaxed max-w-2xl animate-slide-up" style={{ animationDelay: '150ms' }}>
             Herramientas y activos diseñados para elevar la calidad visual de tus proyectos digitales.

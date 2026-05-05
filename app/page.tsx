@@ -3,20 +3,21 @@ import LaptopMockup from "./components/LaptopMockup";
 import ScrollText from "./components/ScrollText";
 import StarRepo from "./components/StarRepo";
 import TechStack from "./components/TechStack";
+import ExpandableCards from "./components/ExpandableCards";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-transparent">
       <Hero />
       <ScrollText />
-      <div className="container mx-auto px-6 py-32 relative z-20">
+      <div className="container mx-auto px-6 py-12 md:py-32 relative z-20">
         {/* ... existing grid code ... */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
-          <div className="animate-slide-up">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-32">
+          <div className="animate-slide-up order-2 lg:order-1">
             <LaptopMockup />
           </div>
           
-          <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 md:p-16 animate-slide-up" style={{ animationDelay: '200ms' }}>
+          <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3rem] p-8 md:p-16 animate-slide-up order-1 lg:order-2" style={{ animationDelay: '200ms' }}>
             <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-8">
               Innovación <br />
               <span className="font-semibold italic text-red-500">Sin Límites</span>
@@ -42,6 +43,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <ExpandableCards />
       <TechStack />
     </main>
   );

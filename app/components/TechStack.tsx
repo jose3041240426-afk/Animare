@@ -60,10 +60,10 @@ export default function TechStack() {
 
       <style jsx>{`
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 60s linear infinite;
         }
         .animate-marquee2 {
-          animation: marquee2 40s linear infinite;
+          animation: marquee2 60s linear infinite;
         }
         @keyframes marquee {
           0% { transform: translateX(0%); }

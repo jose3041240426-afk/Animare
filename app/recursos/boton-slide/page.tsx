@@ -73,9 +73,25 @@ export default function BotonSlidePage() {
 
   const handleCopy = () => {
     const codeToCopy = activeTab === "html" ? htmlCode : getCssCode();
-    navigator.clipboard.writeText(codeToCopy);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(codeToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } else {
+      // Fallback for non-secure contexts or incompatible browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = codeToCopy;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        console.error('Fallback copy failed', err);
+      }
+      document.body.removeChild(textArea);
+    }
   };
 
   const renderCodeLines = (code: string) => {

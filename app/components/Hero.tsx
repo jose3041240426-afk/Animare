@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import StarButton from "./StarButton";
-import TechBackground from "./TechBackground";
+import TechBackground from "./TechBackground"; 
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -38,6 +38,10 @@ export default function Hero() {
           </Link>
           <Link href="/proyectos" className="relative group hover:text-white transition-colors duration-500">
             proyectos
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
+          </Link>
+          <Link href="/contacto" className="relative group hover:text-white transition-colors duration-500">
+            contacto
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
           </Link>
         </nav>
@@ -83,6 +87,24 @@ export default function Hero() {
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-black z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <nav className="flex flex-col gap-8 text-center">
+          <Link href="/" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            inicio
+          </Link>
+          <Link href="/recursos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            recursos
+          </Link>
+          <Link href="/proyectos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            proyectos
+          </Link>
+          <Link href="/contacto" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white hover:text-gray-400 transition-colors">
+            contacto
+          </Link>
+        </nav>
       </div>
 
       {/* Decorative Background Elements */}

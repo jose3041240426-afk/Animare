@@ -136,7 +136,7 @@ export default function LaptopMockup() {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      className={`relative w-full max-w-md mx-auto my-32 perspective-2000 group ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
+      className={`relative w-full max-w-md mx-auto my-12 md:my-32 perspective-2000 group ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
     >
       <div 
         className="relative transition-transform duration-100 ease-out preserve-3d"

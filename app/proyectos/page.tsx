@@ -119,6 +119,10 @@ export default function ProyectosPage() {
             proyectos
             <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white transition-all duration-500" />
           </Link>
+          <Link href="/contacto" className="relative group hover:text-white transition-colors duration-500">
+            contacto
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
+          </Link>
         </nav>
 
         <div className="lg:hidden">
@@ -135,6 +139,7 @@ export default function ProyectosPage() {
           <Link href="/" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white transition-colors">inicio</Link>
           <Link href="/recursos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white transition-colors">recursos</Link>
           <Link href="/proyectos" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white transition-colors">proyectos</Link>
+          <Link href="/contacto" onClick={() => setMenuOpen(false)} className="text-2xl uppercase tracking-[0.3em] font-light text-white transition-colors">contacto</Link>
         </nav>
       </div>
 
