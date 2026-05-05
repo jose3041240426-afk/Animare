@@ -194,12 +194,6 @@ export default function ExpandableCards() {
               </div>
               <p className="text-white/60 leading-relaxed font-light">{cards[1].desc}</p>
             </div>
-            <div className="pt-6 border-t border-white/5 w-full">
-              <button className="text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors flex items-center justify-center gap-2 group mx-auto">
-                Saber más
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              </button>
-            </div>
           </motion.div>
         </div>
       </div>
