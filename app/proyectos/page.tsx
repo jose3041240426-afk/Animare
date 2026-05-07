@@ -70,9 +70,9 @@ export default function ProyectosPage() {
       presentation: "Sinergy representa la frontera entre el desarrollo web y la arquitectura digital. Implementamos un motor de Canvas personalizado que transforma el scroll tradicional en una experiencia cinematográfica tridimensional, optimizando cada frame para un rendimiento fluido incluso en dispositivos móviles.",
       link: "https://sinergy-animare.netlify.app/",
       images: [
-        "/sinergy/inicio.png",
-        "/sinergy/descripcion.png",
-        "/sinergy/galeria.png"
+        "https://res.cloudinary.com/dkrqtc2vo/image/upload/v1778119480/inicio_mnyeay.png",
+        "https://res.cloudinary.com/dkrqtc2vo/image/upload/v1778119479/descripcion_i0cesv.png",
+        "https://res.cloudinary.com/dkrqtc2vo/image/upload/v1778119480/galeria_kkmvf3.png"
       ]
     },
     {
@@ -106,12 +106,12 @@ export default function ProyectosPage() {
       screens: [
         {
           name: "1. Pantalla de Login / Registro",
-          video: "/Login.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119284/Login_dkuf5n.mp4",
           features: ["Interfaz con efecto slider (overlay)", "Fondo animado con estrellas", "Encriptación con bcrypt", "Entrada como invitado"]
         },
         {
           name: "2. Pantalla de Inicio",
-          video: "/Home.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119289/Home_mbmepb.mp4",
           features: [
             "Hero slider con Swiper.js",
             "Efecto parallax con GSAP",
@@ -122,7 +122,7 @@ export default function ProyectosPage() {
         },
         {
           name: "3. Catálogo de Productos",
-          video: "/Catalogo.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119284/Catalogo_ohhjue.mp4",
           features: [
             "Grid responsivo glassmorphism",
             "Filtros avanzados y paginación animada",
@@ -133,17 +133,17 @@ export default function ProyectosPage() {
         },
         {
           name: "4. Carrito de Compras",
-          video: "/Carrito.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119284/Carrito_a9bikr.mp4",
           features: ["Modelo 3D de carrito", "Checkout con Leaflet", "Buscador LocationIQ", "Billetera virtual"]
         },
         {
           name: "5. Perfil de Usuario",
-          video: "/Profile.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119286/Profile_sjaclq.mp4",
           features: ["Dashboard con fotos", "Historial expansible", "Efecto wallet interactivo"]
         },
         {
           name: "6. Panel de Administración",
-          video: "/Administrar.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119286/Profile_sjaclq.mp4",
           features: ["Protección de rol real-time", "Gestión de stock/pedidos", "Subida Cloudinary"]
         }
       ],
