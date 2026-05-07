@@ -2,6 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselNavigation,
+  CarouselIndicator,
+  CarouselItem,
+} from "@/app/components/ui/carousel";
 
 export default function ProyectosPage() {
   const [mounted, setMounted] = useState(false);
@@ -15,6 +22,59 @@ export default function ProyectosPage() {
   if (!mounted) return null;
 
   const projects = [
+    {
+      id: "sinergy",
+      title: "Sinergy",
+      subtitle: "Arquitectura Inmersiva 3D",
+      tag: "Canvas Engine / UX",
+      description: "Sinergy es una plataforma web vanguardista diseñada para un estudio de arquitectura. El sitio se centra en una experiencia de usuario inmersiva basada en el movimiento del usuario (scroll), utilizando técnicas de renderizado de alto rendimiento para simular una navegación tridimensional a través de un edificio.",
+      summary: "Experiencia inmersiva que simula un recorrido 3D mediante scroll, optimizada con Spritesheets y Canvas API.",
+      tech: {
+        backend: ["Lógica de Estados", "Optimización de Memoria", "CI/CD Netlify"],
+        backendImages: [
+          { name: "JavaScript", url: "https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" },
+          { name: "Netlify", url: "https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg" }
+        ],
+        frontend: ["HTML5 Semántico", "CSS3 Vanilla", "Canvas API", "Lucide Icons"],
+        frontendImages: [
+          { name: "HTML5", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/960px-HTML5_logo_and_wordmark.svg.png" },
+          { name: "CSS3", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1920px-CSS3_logo_and_wordmark.svg.png" },
+          { name: "Lucide", url: "https://lucide.dev/logo.svg" }
+        ],
+        external: ["Spritesheets", "requestAnimationFrame"],
+        externalImages: [],
+        security: ["Carga Diferida", "Preloader de Assets", "Performance Audit"]
+      },
+      screens: [
+        {
+          name: "1. Preloader Inteligente",
+          video: null,
+          features: ["Bloqueo de scroll hasta carga total", "Contador de spritesheets", "Transición suave de revelación"]
+        },
+        {
+          name: "2. Motor de Animación Canvas",
+          video: null,
+          features: ["Renderizado de 168 frames", "Sincronización con requestAnimationFrame", "Cálculo dinámico de posición de scroll"]
+        },
+        {
+          name: "3. Diseño Editorial & Glassmorphism",
+          video: null,
+          features: ["Tipografía Inter de alto impacto", "Efectos de refracción en navegación", "Layout responsivo adaptativo"]
+        }
+      ],
+      technicalHighlights: [
+        { key: "Canvas Engine", val: "Renderizado eficiente de spritesheets para evitar latencia de video." },
+        { key: "Optimización HTTP", val: "Reducción de peticiones mediante agrupación de frames en hojas maestras." },
+        { key: "UX Inmersiva", val: "Navegación intuitiva vinculada directamente al scroll del usuario." }
+      ],
+      presentation: "Sinergy representa la frontera entre el desarrollo web y la arquitectura digital. Implementamos un motor de Canvas personalizado que transforma el scroll tradicional en una experiencia cinematográfica tridimensional, optimizando cada frame para un rendimiento fluido incluso en dispositivos móviles.",
+      link: "https://sinergy-animare.netlify.app/",
+      images: [
+        "/sinergy/inicio.png",
+        "/sinergy/descripcion.png",
+        "/sinergy/galeria.png"
+      ]
+    },
     {
       id: "section80",
       title: "Section.80",
@@ -164,9 +224,21 @@ export default function ProyectosPage() {
             >
               <div className="mb-12">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/60">
-                    {proj.tag}
-                  </span>
+                  <div className="flex gap-3">
+                    <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/60">
+                      {proj.tag}
+                    </span>
+                    {proj.link && (
+                      <Link 
+                        href={proj.link} 
+                        target="_blank" 
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-block px-4 py-1.5 rounded-full border border-red-500/50 bg-red-500/10 text-[10px] uppercase tracking-widest text-red-400 hover:bg-red-500 hover:text-white transition-all duration-300"
+                      >
+                        Live
+                      </Link>
+                    )}
+                  </div>
                   <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:rotate-45">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -214,7 +286,20 @@ export default function ProyectosPage() {
               <div className="max-w-3xl">
                 <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs uppercase tracking-widest text-white/60 mb-6">Detalles del Proyecto</span>
                 <h2 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">{selectedProject.title}</h2>
-                <p className="text-2xl text-white/40 leading-relaxed font-light italic">{selectedProject.description}</p>
+                <p className="text-2xl text-white/40 leading-relaxed font-light italic mb-10">{selectedProject.description}</p>
+                
+                {selectedProject.link && (
+                  <Link 
+                    href={selectedProject.link} 
+                    target="_blank" 
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-red-600 text-white font-bold hover:bg-red-500 transition-all duration-300 group shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_30px_rgba(220,38,38,0.5)]"
+                  >
+                    Visitar Proyecto
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
+                )}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -244,6 +329,33 @@ export default function ProyectosPage() {
                   </div>
                 ))}
               </div>
+
+              {selectedProject.images && (
+                <div className="space-y-12">
+                  <h3 className="text-2xl font-semibold flex items-center gap-4">
+                    <span className="w-12 h-[1px] bg-white/20" /> Galería de Capturas
+                  </h3>
+                  <div className="relative px-12">
+                    <Carousel>
+                      <CarouselContent>
+                        {selectedProject.images.map((img: string, idx: number) => (
+                          <CarouselItem key={idx} className="p-2 md:p-4">
+                            <div className="aspect-video rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 bg-white/5 transition-all duration-700 hover:border-red-500/30 shadow-2xl">
+                              <img src={img} alt={`Screenshot ${idx + 1}`} className="w-full h-full object-cover" />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselNavigation 
+                        alwaysShow 
+                        className="left-0 w-full px-0" 
+                        classNameButton="bg-white/5 border border-white/10 hover:bg-red-600 hover:border-red-600 transition-all duration-500 text-white" 
+                      />
+                      <CarouselIndicator className="mt-8" classNameButton="w-2 h-2" />
+                    </Carousel>
+                  </div>
+                </div>
+              )}
 
               <div>
                 <h3 className="text-2xl font-semibold mb-12 flex items-center gap-4"><span className="w-12 h-[1px] bg-white/20" />Listado de Pantallas y Funcionalidades</h3>
