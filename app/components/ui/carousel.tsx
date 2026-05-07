@@ -137,49 +137,45 @@ function CarouselNavigation({
         type='button'
         aria-label='Previous slide'
         className={cn(
-          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
+          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-900 border border-white/10 p-2 transition-all duration-300',
           alwaysShow
             ? 'opacity-100'
             : 'opacity-0 group-hover/hover:opacity-100',
-          alwaysShow
-            ? 'disabled:opacity-40'
-            : 'group-hover/hover:disabled:opacity-40',
           classNameButton
         )}
-        disabled={index === 0}
         onClick={() => {
           if (index > 0) {
             setIndex(index - 1);
+          } else {
+            setIndex(itemsCount - 1);
           }
         }}
       >
         <ChevronLeft
-          className='stroke-zinc-600 dark:stroke-zinc-50'
+          className='stroke-zinc-400 group-hover:stroke-white transition-colors'
           size={16}
         />
       </button>
       <button
         type='button'
         className={cn(
-          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
+          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-900 border border-white/10 p-2 transition-all duration-300',
           alwaysShow
             ? 'opacity-100'
             : 'opacity-0 group-hover/hover:opacity-100',
-          alwaysShow
-            ? 'disabled:opacity-40'
-            : 'group-hover/hover:disabled:opacity-40',
           classNameButton
         )}
         aria-label='Next slide'
-        disabled={index + 1 === itemsCount}
         onClick={() => {
           if (index < itemsCount - 1) {
             setIndex(index + 1);
+          } else {
+            setIndex(0);
           }
         }}
       >
         <ChevronRight
-          className='stroke-zinc-600 dark:stroke-zinc-50'
+          className='stroke-zinc-400 group-hover:stroke-white transition-colors'
           size={16}
         />
       </button>
@@ -201,7 +197,7 @@ function CarouselIndicator({
   return (
     <div
       className={cn(
-        'absolute bottom-0 z-10 flex w-full items-center justify-center',
+        'relative z-10 flex w-full items-center justify-center',
         className
       )}
     >

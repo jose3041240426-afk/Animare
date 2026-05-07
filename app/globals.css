@@ -103,57 +103,20 @@ body {
     width: 200%;
     height: 200%;
     background: transparent url('https://grainy-gradients.vercel.app/noise.svg') repeat 0 0;
-    animation: noise 0.2s infinite;
+    animation: noise 0.4s steps(2) infinite;
     opacity: .04;
     z-index: 100;
     pointer-events: none;
+    will-change: transform;
   }
 }
 
 @keyframes noise {
-  0% {
-    transform: translate(0, 0)
-  }
-
-  10% {
-    transform: translate(-5%, -5%)
-  }
-
-  20% {
-    transform: translate(-10%, 5%)
-  }
-
-  30% {
-    transform: translate(5%, -10%)
-  }
-
-  40% {
-    transform: translate(-5%, 15%)
-  }
-
-  50% {
-    transform: translate(-10%, 5%)
-  }
-
-  60% {
-    transform: translate(15%, 0)
-  }
-
-  70% {
-    transform: translate(0, 10%)
-  }
-
-  80% {
-    transform: translate(-15%, 0)
-  }
-
-  90% {
-    transform: translate(10%, 5%)
-  }
-
-  100% {
-    transform: translate(5%, 0)
-  }
+  0% { transform: translate(0, 0) }
+  25% { transform: translate(-5%, -5%) }
+  50% { transform: translate(-10%, 5%) }
+  75% { transform: translate(5%, -10%) }
+  100% { transform: translate(-5%, 15%) }
 }
 
 /* Burger Menu Styles */
@@ -262,4 +225,127 @@ body {
 .scroll-editor:hover::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 100%);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Visit Button */
+.cssbuttons-io-button {
+  background: #dc2626;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #991b1b;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em rgba(220, 38, 38, 0.4);
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #dc2626;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+/* Spotlight Effect */
+.spotlight-card {
+  --x: 0;
+  --y: 0;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+    rgba(220, 38, 38, 0.15),
+    transparent 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.spotlight-card > .spotlight-content {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
 }
