@@ -143,7 +143,7 @@ export default function ProyectosPage() {
         },
         {
           name: "6. Panel de Administración",
-          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119286/Profile_sjaclq.mp4",
+          video: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119285/Administrar_nk0b8n.mp4",
           features: ["Protección de rol real-time", "Gestión de stock/pedidos", "Subida Cloudinary"]
         }
       ],
