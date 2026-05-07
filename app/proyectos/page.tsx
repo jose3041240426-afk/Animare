@@ -9,7 +9,7 @@ export default function ProyectosPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const rafRef = useRef<number>(0);
 
-  const handleSpotlight = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+  const handleSpotlight = useCallback((e: React.MouseEvent<HTMLElement>) => {
     cancelAnimationFrame(rafRef.current);
     rafRef.current = requestAnimationFrame(() => {
       const card = (e.target as HTMLElement).closest<HTMLElement>('.spotlight-card');
