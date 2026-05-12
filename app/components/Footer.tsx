@@ -17,11 +17,9 @@ export default function Footer() {
               Software de vanguardia con estética editorial.
             </p>
             <div className="flex gap-6">
-              {['Twitter', 'GitHub', 'LinkedIn'].map((social) => (
-                <a key={social} href="#" className="text-[10px] uppercase tracking-widest text-white/30 hover:text-white transition-colors">
-                  {social}
-                </a>
-              ))}
+              <a href="https://www.instagram.com/animare.dev/" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-white/30 hover:text-white transition-colors">
+                Instagram
+              </a>
             </div>
           </div>
 
