@@ -341,6 +341,23 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
             <p className="text-lg md:text-xl text-white/60 font-light italic leading-relaxed max-w-3xl mx-auto mt-4">"{selectedProject.presentation}"</p>
           </div>
         </footer>
+
+        {/* Private System Warning - Only for dual apps/ecosystems */}
+        {isRyu && (
+          <div className="mt-8 p-6 rounded-2xl border border-red-500/20 bg-red-500/5 backdrop-blur-sm relative overflow-hidden group animate-fade-in" style={{ animationDelay: '400ms' }}>
+            <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative z-10 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+                <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <p className="text-sm md:text-base text-red-200/60 font-light leading-relaxed">
+                Este ecosistema es de uso <span className="text-red-400 font-medium">privado y cerrado</span>. Debido a la naturaleza operativa y la sensibilidad de los datos del negocio, el acceso está restringido exclusivamente a personal con permisos autorizados.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       <style jsx global>{`
