@@ -184,11 +184,14 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           </section>
         )}
 
-        <div className="flex flex-col gap-16 mb-24">
-          {/* Gallery - Top Section */}
+        <div className={cn(
+          "flex mb-24",
+          isRyu ? "flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start" : "flex-col gap-16"
+        )}>
+          {/* Gallery */}
           {currentImages && (
-            <section key={`gallery-${ryuTab}`} className="w-full animate-fade-in" style={{ animationDelay: '100ms' }}>
-              <div className={cn("relative mx-auto", currentMaxW)}>
+            <section key={`gallery-${ryuTab}`} className={cn(isRyu ? "w-full lg:w-fit shrink-0" : "w-full", "animate-fade-in")} style={{ animationDelay: '100ms' }}>
+              <div className={cn("relative mx-auto", isRyu && "lg:mx-0 px-4 lg:px-0", currentMaxW)}>
                 <Carousel onIndexChange={setCarouselIndex}>
                   <CarouselContent>
                     {currentImages.map((imgData: any, idx: number) => {
@@ -229,9 +232,12 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
             </section>
           )}
 
-          {/* Info - Bottom Section */}
-          <div className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-12 animate-fade-in" style={{ animationDelay: '200ms' }}>
-            <section className="md:col-span-2">
+          {/* Info Section */}
+          <div className={cn(
+            "animate-fade-in",
+            isRyu ? "flex-1 space-y-12" : "max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-12"
+          )} style={{ animationDelay: '200ms' }}>
+            <section className={cn(!isRyu && "md:col-span-2")}>
               <h3 className="text-xs uppercase tracking-[0.25em] text-white/25 mb-6 flex items-center gap-3">
                 <span className="w-6 h-[1px] bg-white/15" />Descripción
               </h3>
@@ -242,7 +248,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               </div>
             </section>
 
-            {/* Compact Technical Highlights */}
+            {/* Technical Highlights */}
             <section className="space-y-6">
               <h3 className="text-xs uppercase tracking-[0.25em] text-white/25 mb-6 flex items-center gap-3">
                 <span className="w-6 h-[1px] bg-white/15" />Puntos Clave
@@ -261,6 +267,38 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
             </section>
           </div>
         </div>
+
+        {/* Screens Section - Only for Ryu Sushi */}
+        {isRyu && (
+          <section key={`screens-${ryuTab}`} className="mb-12">
+            <h3 className="text-xs uppercase tracking-[0.25em] text-white/25 mb-5 flex items-center gap-3 animate-stagger" style={{ animationDelay: '200ms' }}>
+              <span className="w-6 h-[1px] bg-white/15" />Pantallas
+            </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              {currentScreens?.map((screen: any, idx: number) => (
+                <div
+                  key={`${ryuTab}-screen-${idx}`}
+                  className="group p-5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all animate-slide-up"
+                  style={{ animationDelay: `${idx * 100 + 300}ms` }}
+                >
+                  <h4 className="text-sm font-semibold mb-3 text-white/70 group-hover:text-white transition-colors">{screen.name}</h4>
+                  {screen.video && (
+                    <div className="mb-4 rounded-lg overflow-hidden border border-white/[0.06] bg-black aspect-video">
+                      <LazyVideo src={screen.video} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <ul className="space-y-1.5">
+                    {screen.features?.map((feat: string, fIdx: number) => (
+                      <li key={fIdx} className="flex items-start gap-2 text-white/40 text-xs leading-relaxed">
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-red-600/40 shrink-0" />{feat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
 
 
