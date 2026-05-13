@@ -84,20 +84,20 @@ export default function ProyectosPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
           {projects.map((proj: any, index: number) => (
             <Link
               href={`/proyectos/${proj.id}`}
               key={proj.id}
-              className="group spotlight-card animate-slide-up relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-[#090909] flex items-center justify-center text-center p-8 transition-all duration-500 hover:border-red-600/30"
+              className="group spotlight-card animate-slide-up relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10 bg-[#090909] flex items-center justify-center text-center p-4 md:p-6 transition-all duration-500 hover:border-red-600/30"
               style={{ animationDelay: `${400 + index * 100}ms` }}
               onMouseMove={handleSpotlight}
             >
               <div className="spotlight-content h-full w-full flex flex-col items-center justify-center pointer-events-none">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-700 ease-out uppercase">
+                <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white/30 group-hover:text-white group-hover:scale-105 transition-all duration-700 ease-out uppercase">
                   {proj.title}
                 </h2>
-                <div className="mt-4 w-0 h-[2px] bg-red-600 transition-all duration-700 group-hover:w-12" />
+                <div className="mt-3 w-0 h-[1.5px] bg-red-600 transition-all duration-700 group-hover:w-8" />
               </div>
             </Link>
           ))}
