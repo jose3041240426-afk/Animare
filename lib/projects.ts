@@ -57,8 +57,18 @@ export const projects = [
     title: "Section.80",
     subtitle: "E-commerce de Streetwear",
     tag: "Full Stack Web App",
+    carouselAspect: "aspect-video",
+    carouselMaxW: "max-w-4xl",
     description: "Section.80 es una plataforma de comercio electrónico completa y funcional, diseñada para la venta de ropa urbana, calzado y accesorios streetwear. El nombre es un homenaje al álbum homónimo de Kendrick Lamar, reflejendo la fusión entre la cultura del hip-hop, los sneakers y la moda callejera.",
     summary: "E-commerce premium de Streetwear con catálogo dinámico, carrito interactivo y panel administrativo.",
+    images: [
+      { url: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119284/Login_dkuf5n.mp4", type: "video", description: "Pantalla de acceso con efecto slider y fondo animado de estrellas." },
+      { url: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119289/Home_mbmepb.mp4", type: "video", description: "Página de inicio con hero slider, efectos parallax y visualización de productos en 3D." },
+      { url: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119284/Catalogo_ohhjue.mp4", type: "video", description: "Catálogo interactivo con filtros avanzados, sistema de reseñas y efectos de cristal." },
+      { url: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119284/Carrito_a9bikr.mp4", type: "video", description: "Gestión de carrito de compras con geolocalización para envíos y billetera virtual." },
+      { url: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119286/Profile_sjaclq.mp4", type: "video", description: "Perfil de usuario personalizado con historial de pedidos y dashboard de actividad." },
+      { url: "https://res.cloudinary.com/dkrqtc2vo/video/upload/v1778119285/Administrar_nk0b8n.mp4", type: "video", description: "Panel administrativo seguro para el control total del inventario y pedidos." }
+    ],
     tech: {
       backend: ["Node.js", "Express", "JWT con cookies httpOnly", "MySQL"],
       backendImages: [

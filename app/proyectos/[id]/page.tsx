@@ -191,28 +191,27 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               <div className={cn("relative mx-auto lg:mx-0 px-4 lg:px-0", currentMaxW)}>
                 <Carousel onIndexChange={setCarouselIndex}>
                   <CarouselContent>
-                    {currentImages.map((imgData: any, idx: number) => {
-                      const imgUrl = typeof imgData === 'string' ? imgData : imgData.url;
-                      return (
                         <CarouselItem key={idx} className="p-1">
                           <div 
-                            className={cn("rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors group relative cursor-zoom-in", currentAspect)}
-                            onMouseMove={handleZoomMove}
+                            className={cn("rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors group relative", currentAspect, imgData.type !== 'video' && "cursor-zoom-in")}
+                            onMouseMove={imgData.type !== 'video' ? handleZoomMove : undefined}
                             onMouseLeave={() => setZoomPos({ x: 50, y: 50 })}
                           >
-                            <img 
-                              src={imgUrl} 
-                              alt={`Screenshot ${idx + 1}`} 
-                              loading="lazy" 
-                              className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[2.5]" 
-                              style={{ 
-                                transformOrigin: `${zoomPos.x}% ${zoomPos.y}%` 
-                              }}
-                            />
+                            {imgData.type === 'video' ? (
+                              <LazyVideo src={imgUrl} className="w-full h-full object-cover" />
+                            ) : (
+                              <img 
+                                src={imgUrl} 
+                                alt={`Screenshot ${idx + 1}`} 
+                                loading="lazy" 
+                                className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[2.5]" 
+                                style={{ 
+                                  transformOrigin: `${zoomPos.x}% ${zoomPos.y}%` 
+                                }}
+                              />
+                            )}
                           </div>
                         </CarouselItem>
-                      );
-                    })}
                   </CarouselContent>
                   <CarouselNavigation
                     alwaysShow
