@@ -58,7 +58,7 @@ export const projects = [
     subtitle: "E-commerce de Streetwear",
     tag: "Full Stack Web App",
     description: "Section.80 es una plataforma de comercio electrónico completa y funcional, diseñada para la venta de ropa urbana, calzado y accesorios streetwear. El nombre es un homenaje al álbum homónimo de Kendrick Lamar, reflejendo la fusión entre la cultura del hip-hop, los sneakers y la moda callejera.",
-    summary: "El proyecto simula una tienda online real con todas las funcionalidades de un e-commerce moderno: catálogo de productos, carrito de compras, sistema de autenticación seguro, panel de administración, y más.",
+    summary: "E-commerce premium de Streetwear con catálogo dinámico, carrito interactivo y panel administrativo.",
     tech: {
       backend: ["Node.js", "Express", "JWT con cookies httpOnly", "MySQL"],
       backendImages: [
