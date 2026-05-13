@@ -132,7 +132,7 @@ export const projects = [
     presentation: "Section.80 es mi proyecto personal de e-commerce de streetwear. Cuenta con autenticación segura mediante JWT con refresh tokens en cookies httpOnly, panel de administración en tiempo real, sistema de reseñas, carrito de compras interactivo, integración con mapas para selección de envío, y subida de imágenes a Cloudinary con firmas seguras."
   },
   {
-    id: "ryu-sushi-pos",
+    id: "ecosistema-ryu-sushi",
     title: "Ryu Sushi",
     subtitle: "Ecosistema de Gestión Restaurantera",
     tag: "POS + Admin BI",
