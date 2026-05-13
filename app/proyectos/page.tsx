@@ -97,7 +97,10 @@ export default function ProyectosPage() {
                 <h2 className="text-lg md:text-xl font-bold tracking-tight text-white/30 group-hover:text-white group-hover:scale-105 transition-all duration-700 ease-out uppercase">
                   {proj.title}
                 </h2>
-                <div className="mt-3 w-0 h-[1.5px] bg-red-600 transition-all duration-700 group-hover:w-8" />
+                <div className="mt-3 w-0 h-[1.5px] bg-red-600 transition-all duration-700 group-hover:w-8 mb-2" />
+                <p className="text-[10px] md:text-[11px] text-white/40 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 font-light max-w-[85%] mx-auto leading-relaxed">
+                  {proj.summary || proj.subtitle}
+                </p>
               </div>
             </Link>
           ))}
