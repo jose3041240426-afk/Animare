@@ -191,6 +191,9 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               <div className={cn("relative mx-auto lg:mx-0 px-4 lg:px-0", currentMaxW)}>
                 <Carousel onIndexChange={setCarouselIndex}>
                   <CarouselContent>
+                    {currentImages.map((imgData: any, idx: number) => {
+                      const imgUrl = typeof imgData === 'string' ? imgData : imgData.url;
+                      return (
                         <CarouselItem key={idx} className="p-1">
                           <div 
                             className={cn("rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors group relative", currentAspect, imgData.type !== 'video' && "cursor-zoom-in")}
@@ -212,6 +215,8 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
                             )}
                           </div>
                         </CarouselItem>
+                      );
+                    })}
                   </CarouselContent>
                   <CarouselNavigation
                     alwaysShow
