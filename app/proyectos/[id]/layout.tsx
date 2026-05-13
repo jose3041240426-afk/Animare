@@ -15,7 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const firstImage = project.images?.[0];
+  const firstImageData = project.images?.[0];
+  const firstImageUrl = typeof firstImageData === 'string' ? firstImageData : (firstImageData as any)?.url;
 
   return {
     title: `${project.title} — ${project.subtitle}`,
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${project.title} | Animare`,
       description: project.summary || project.description,
       url: `https://animare.dev/proyectos/${id}`,
-      images: firstImage
-        ? [{ url: firstImage, width: 1200, height: 630, alt: project.title }]
+      images: firstImageUrl
+        ? [{ url: firstImageUrl, width: 1200, height: 630, alt: project.title }]
         : undefined,
     },
     alternates: {
