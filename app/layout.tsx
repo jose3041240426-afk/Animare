@@ -111,6 +111,8 @@ const jsonLd = {
   },
 };
 
+import CodeProtection from "./components/CodeProtection";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -125,6 +127,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${prata.variable} antialiased`}>
+        <CodeProtection />
         <GlassBackground />
         <div className="noise-overlay" />
         {children}
