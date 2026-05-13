@@ -93,12 +93,14 @@ export default function ProyectosPage() {
               style={{ animationDelay: `${400 + index * 100}ms` }}
               onMouseMove={handleSpotlight}
             >
-              <div className="spotlight-content h-full w-full flex flex-col items-center justify-center pointer-events-none">
-                <h2 className="text-lg md:text-xl font-bold tracking-tight text-white/30 group-hover:text-white group-hover:scale-105 transition-all duration-700 ease-out uppercase">
-                  {proj.title}
-                </h2>
-                <div className="mt-3 w-0 h-[1.5px] bg-red-600 transition-all duration-700 group-hover:w-8 mb-2" />
-                <p className="text-[10px] md:text-[11px] text-white/40 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 font-light max-w-[85%] mx-auto leading-relaxed">
+              <div className="spotlight-content h-full w-full flex flex-col items-center pt-14 md:pt-16 pointer-events-none">
+                <div className="h-8 md:h-10 flex items-center justify-center">
+                  <h2 className="text-lg md:text-xl font-bold tracking-tight text-white/30 group-hover:text-white group-hover:scale-105 transition-all duration-700 ease-out uppercase text-center">
+                    {proj.title}
+                  </h2>
+                </div>
+                <div className="mt-2 w-0 h-[1.5px] bg-red-600 transition-all duration-700 group-hover:w-8 mb-4" />
+                <p className="text-[10px] md:text-[11px] text-white/40 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 font-light max-w-[85%] mx-auto leading-relaxed text-justify">
                   {proj.summary || proj.subtitle}
                 </p>
               </div>
