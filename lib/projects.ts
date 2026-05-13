@@ -208,6 +208,8 @@ export const projects = [
       admin: {
         name: "Ryu Admin",
         subtitle: "Dashboard de Análisis Ejecutivo",
+        carouselAspect: "aspect-[9/19.5]",
+        carouselMaxW: "max-w-xs",
         description: "Cerebro analítico del ecosistema. Transforma datos transaccionales en insights estratégicos para la toma de decisiones.",
         tech: {
           backend: ["Supabase (PostgreSQL)", "DeepSeek AI (Analista)", "Business Logic Helpers"],
@@ -250,6 +252,17 @@ export const projects = [
           { key: "Data Transformation", val: "chartHelpers procesa datos crudos de Supabase en visualizaciones legibles." },
           { key: "IA Predictive", val: "Integración planeada con DeepSeek para recomendaciones de inventario." },
           { key: "UX Premium", val: "Interfaz oscura con diseño basado en capas y profundidad visual." }
+        ],
+        images: [
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656326/1_ventas_recientes_v6b9ph.png", description: "Dashboard principal con métricas clave: ventas totales, ticket promedio y gráfica de tendencia de ingresos." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656326/2_comparacion_semanal_y_productos_estrellas_rjrfj8.png", description: "Analítica comparativa semanal y visualización de productos estrella para identificar los artículos más vendidos." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656326/3_horas_pico_y_metodo_de_pago_qy7fbt.png", description: "Análisis de horas pico para optimización de personal y desglose detallado de los métodos de pago utilizados." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656326/4_ultimos_pedidos_qupfla.png", description: "Historial cronológico de los últimos pedidos realizados con estados de pago y montos específicos." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656326/5_proyecciones_ia_hbqto7.png", description: "Módulo de inteligencia artificial que proyecta ventas futuras basadas en el historial de datos del restaurante." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656327/6_consejos_estrategias_y_precision_kalmyr.png", description: "Recomendaciones estratégicas generadas por IA para mejorar la rentabilidad y precisión operativa del negocio." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656327/7_Chatbot_con_acceso_a_tus_ventas_y_estadisticas_qxdyn1.png", description: "Asistente inteligente con acceso directo a estadísticas en tiempo real para consultas rápidas sobre el desempeño." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656327/8_Conversacion_con_el_agente_de_ia_cvo4za.png", description: "Interfaz de chat interactiva para conversar con el agente de IA y obtener insights profundos sobre el negocio." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778656326/9_opciones_de_la_aplicacion_zotvs4.png", description: "Menú de configuración y opciones de la aplicación para personalizar la experiencia administrativa." }
         ]
       }
     },

@@ -116,6 +116,9 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
   const imageDescription = typeof currentImageData === 'object' ? currentImageData?.description : null;
   const displayDescription = imageDescription || (isRyu ? activeApp!.description : selectedProject.description);
 
+  const currentAspect = (activeApp as any)?.carouselAspect || (selectedProject as any).carouselAspect || "aspect-video";
+  const currentMaxW = (activeApp as any)?.carouselMaxW || (selectedProject as any).carouselMaxW || "max-w-2xl";
+
   return (
     <main className="min-h-screen bg-[#060606] text-white selection:bg-red-600 selection:text-white font-sans">
       {/* Fixed Top Bar */}
@@ -185,7 +188,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           {/* Gallery - Left Column */}
           {currentImages && (
             <section key={`gallery-${ryuTab}`} className="w-full lg:w-fit shrink-0 animate-fade-in" style={{ animationDelay: '100ms' }}>
-              <div className={cn("relative mx-auto lg:mx-0 px-4 lg:px-0", (selectedProject as any).carouselMaxW || "max-w-2xl")}>
+              <div className={cn("relative mx-auto lg:mx-0 px-4 lg:px-0", currentMaxW)}>
                 <Carousel onIndexChange={setCarouselIndex}>
                   <CarouselContent>
                     {currentImages.map((imgData: any, idx: number) => {
@@ -193,7 +196,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
                       return (
                         <CarouselItem key={idx} className="p-1">
                           <div 
-                            className={cn("rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors group relative cursor-zoom-in", (selectedProject as any).carouselAspect || "aspect-video")}
+                            className={cn("rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors group relative cursor-zoom-in", currentAspect)}
                             onMouseMove={handleZoomMove}
                             onMouseLeave={() => setZoomPos({ x: 50, y: 50 })}
                           >
