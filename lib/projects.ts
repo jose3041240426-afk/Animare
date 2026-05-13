@@ -136,6 +136,8 @@ export const projects = [
     title: "Ryu Sushi",
     subtitle: "Ecosistema de Gestión Restaurantera",
     tag: "POS + Admin BI",
+    carouselAspect: "aspect-[9/14]",
+    carouselMaxW: "max-w-xs",
     description: "Un ecosistema dual: un POS de alto rendimiento para la operación diaria y una app administrativa para el análisis ejecutivo del negocio.",
     summary: "Sistema integral que une operación táctica y analítica ejecutiva para el control total del restaurante.",
     apps: {
@@ -179,6 +181,28 @@ export const projects = [
           { key: "Gestión Centralizada", val: "Control total desde inventario hasta cierre de caja en una sola plataforma." },
           { key: "Sincronización Total", val: "Cada movimiento se refleja al instante en todos los dispositivos conectados." },
           { key: "Estabilidad Operativa", val: "Diseñado para funcionar sin interrupciones durante turnos completos." }
+        ],
+        images: [
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634955/1_sushiscreen_qsnz6k.png", description: "Inicio de la aplicación (SushiScreen), una de las interfaces principales del sistema." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634955/3_confirmar_pedido_qbisxc.png", description: "Botón de confirmación tras la selección de productos en el catálogo." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634955/5_modal_de_metodo_de_pago_juu2fy.png", description: "Modal de confirmación para el método de pago (efectivo o tarjeta); aún no se procesa el cobro." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/6_modal_de_efectivo_y_cambio_cl44xd.png", description: "Interfaz de pago en efectivo con calculadora inteligente para el cambio." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634955/7_modal_opciones_de_entrega_dx5abz.png", description: "Selección del tipo de pedido: para llevar, comer en el establecimiento o servicio a domicilio." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/8_modal_clientes_mwsypc.png", description: "Visualización de los clientes registrados localmente durante la jornada actual." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/9_cliente_nuevo_yvxoug.png", description: "Formulario rápido para el registro de un nuevo cliente local." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/10_historial_de_pedidos_ddfc9f.png", description: "Historial completo de ventas presentado en tarjetas con diseño elegante." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/11_modal_de_eliminacion_vf9qwc.png", description: "Gestión de eliminación de pedidos con selección obligatoria del motivo." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/12_modal_de_contrase%C3%B1a_para_eliminacion_d4r1x3.png", description: "Confirmación de eliminación protegida por contraseña, restringida al dueño y asociados." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/12_modal_de_detalles_de_venta_ljesia.png", description: "Reporte detallado de ventas desglosado por categorías y subtotales." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/13_moddal_de_calculadora_integrada_lnhr2j.png", description: "Calculadora integrada con modo automático para balance de ventas y egresos." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634956/14_modal_de_egresos_cgtk5x.png", description: "Módulo de egresos para el registro y control de gastos operativos de la jornada." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/15_modal_de_nuevo_egreso_kxij1c.png", description: "Formulario de nuevo egreso con campos para monto y descripción detallada." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/16_modal_de_registro_n3bsmz.png", description: "Registro de apertura/cierre de turno, incluyendo fondo de caja y asignación de personal." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/17_barra_superiro_con_el_boton_de_promocion_3x2_bpdvbw.png", description: "Barra de navegación rápida con acceso a modo oscuro/claro, egresos y promociones 3x2." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/18_modal_de_inteligencia_artificial_para_pedidos_por_voz_sp5xj9.png", description: "Asistente de IA para la toma de pedidos mediante dictado de voz por parte del operador." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/19_modal_de_editar_pedido_fcvlsz.png", description: "Panel de edición de pedidos con opciones para cobrar, eliminar items o añadir notas." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/20_modal_de_agregar_producto_a_pedido_r6dymz.png", description: "Selector rápido para añadir nuevos productos a una orden que ya está en curso." },
+          { url: "https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1778634957/21_modal_de_seleccion_de_dia_jabt1j.png", description: "Selector de calendario para auditar ventas e historial de días anteriores." }
         ]
       },
       admin: {

@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 import {
   Carousel,
   CarouselContent,
@@ -76,7 +77,16 @@ const LazyVideo = ({ src, className }: { src: string; className?: string }) => {
 export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
   const [ryuTab, setRyuTab] = useState<"pos" | "admin">("pos");
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const rafRef = useRef<number>(0);
+
+  const handleZoomMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setZoomPos({ x, y });
+  };
 
   const handleSpotlight = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     cancelAnimationFrame(rafRef.current);
@@ -100,6 +110,11 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
   const currentTech = isRyu ? activeApp!.tech : selectedProject.tech;
   const currentScreens = isRyu ? activeApp!.screens : selectedProject.screens;
   const currentHighlights = isRyu ? activeApp!.technicalHighlights : selectedProject.technicalHighlights;
+  const currentImages = isRyu ? (activeApp as any).images : (selectedProject as any).images;
+
+  const currentImageData = currentImages?.[carouselIndex];
+  const imageDescription = typeof currentImageData === 'object' ? currentImageData?.description : null;
+  const displayDescription = imageDescription || (isRyu ? activeApp!.description : selectedProject.description);
 
   return (
     <main className="min-h-screen bg-[#060606] text-white selection:bg-red-600 selection:text-white font-sans">
@@ -153,35 +168,9 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           <div className="mt-8 h-[1px] bg-gradient-to-r from-white/10 via-white/5 to-transparent" />
         </header>
 
-        {/* Gallery */}
-        {selectedProject.images && (
-          <section className="mb-16 animate-fade-in" style={{ animationDelay: '100ms' }}>
-
-            <div className="relative max-w-2xl mx-auto px-4">
-              <Carousel>
-                <CarouselContent>
-                  {selectedProject.images.map((img: string, idx: number) => (
-                    <CarouselItem key={idx} className="p-1">
-                      <div className="aspect-video rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors">
-                        <img src={img} alt={`Screenshot ${idx + 1}`} loading="lazy" className="w-full h-full object-cover" />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselNavigation
-                  alwaysShow
-                  className="left-[-5%] w-[110%] px-0"
-                  classNameButton="bg-red-600 border-red-600 hover:bg-red-500 hover:border-red-500 text-white w-8 h-8 shadow-[0_0_15px_rgba(220,38,38,0.4)]"
-                />
-                <CarouselIndicator className="mt-12" classNameButton="w-2 h-2" />
-              </Carousel>
-            </div>
-          </section>
-        )}
-
         {/* Ryu Tab Bar */}
         {isRyu && (
-          <section className="mb-10 animate-fade-in" style={{ animationDelay: '150ms' }}>
+          <section className="mb-12 animate-fade-in" style={{ animationDelay: '150ms' }}>
             <div className="glass-radio-group">
               <input type="radio" name="ryu-tab" id="glass-pos" checked={ryuTab === "pos"} onChange={() => setRyuTab("pos")} />
               <label htmlFor="glass-pos">Ryu Sushi POS</label>
@@ -192,11 +181,79 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           </section>
         )}
 
-        <section className="mb-12 animate-fade-in" style={{ animationDelay: '200ms' }}>
-          <p className="text-lg md:text-xl text-white/50 leading-relaxed font-light italic max-w-3xl min-h-[3em] text-justify mx-auto">
-            <TypewriterText text={isRyu ? activeApp!.description : selectedProject.description} />
-          </p>
-        </section>
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start mb-24">
+          {/* Gallery - Left Column */}
+          {currentImages && (
+            <section key={`gallery-${ryuTab}`} className="w-full lg:w-fit shrink-0 animate-fade-in" style={{ animationDelay: '100ms' }}>
+              <div className={cn("relative mx-auto lg:mx-0 px-4 lg:px-0", (selectedProject as any).carouselMaxW || "max-w-2xl")}>
+                <Carousel onIndexChange={setCarouselIndex}>
+                  <CarouselContent>
+                    {currentImages.map((imgData: any, idx: number) => {
+                      const imgUrl = typeof imgData === 'string' ? imgData : imgData.url;
+                      return (
+                        <CarouselItem key={idx} className="p-1">
+                          <div 
+                            className={cn("rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-red-500/20 transition-colors group relative cursor-zoom-in", (selectedProject as any).carouselAspect || "aspect-video")}
+                            onMouseMove={handleZoomMove}
+                            onMouseLeave={() => setZoomPos({ x: 50, y: 50 })}
+                          >
+                            <img 
+                              src={imgUrl} 
+                              alt={`Screenshot ${idx + 1}`} 
+                              loading="lazy" 
+                              className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[2.5]" 
+                              style={{ 
+                                transformOrigin: `${zoomPos.x}% ${zoomPos.y}%` 
+                              }}
+                            />
+                          </div>
+                        </CarouselItem>
+                      );
+                    })}
+                  </CarouselContent>
+                  <CarouselNavigation
+                    alwaysShow
+                    className="left-[-5%] w-[110%] px-0"
+                    classNameButton="bg-red-600 border-red-600 hover:bg-red-500 hover:border-red-500 text-white w-8 h-8 shadow-[0_0_15px_rgba(220,38,38,0.4)]"
+                  />
+                  <CarouselIndicator className="mt-8" classNameButton="w-2 h-2" />
+                </Carousel>
+              </div>
+            </section>
+          )}
+
+          {/* Info - Right Column */}
+          <div className="flex-1 space-y-12 animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <section>
+              <h3 className="text-xs uppercase tracking-[0.25em] text-white/25 mb-6 flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-white/15" />Descripción
+              </h3>
+              <div className="min-h-[120px]">
+                <p className="text-lg md:text-xl text-white/50 leading-relaxed font-light italic text-justify">
+                  <TypewriterText key={displayDescription} text={displayDescription} />
+                </p>
+              </div>
+            </section>
+
+            {/* Compact Technical Highlights */}
+            <section className="grid grid-cols-1 gap-3">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-white/25 mb-3 flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-white/15" />Puntos Clave
+              </h3>
+              <div className="space-y-3">
+                {currentHighlights?.map((highlight: any, idx: number) => (
+                  <div
+                    key={`${ryuTab}-hl-${idx}`}
+                    className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all"
+                  >
+                    <h5 className="font-semibold text-white/80 text-xs mb-1 uppercase tracking-wider">{highlight.key}</h5>
+                    <p className="text-white/35 text-[11px] leading-relaxed">{highlight.val}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
 
         {/* Screens / Features */}
         <section key={`screens-${ryuTab}`} className="mb-12">
@@ -271,26 +328,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
 
 
-        {/* Technical Highlights */}
-        <section key={`highlights-${ryuTab}`} className="mb-16">
-          <h3 className="text-xs uppercase tracking-[0.25em] text-white/25 mb-5 flex items-center gap-3 animate-stagger" style={{ animationDelay: '200ms' }}>
-            <span className="w-6 h-[1px] bg-white/15" />Highlights Técnicos
-          </h3>
-          <div onMouseMove={handleSpotlight} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {currentHighlights?.map((highlight: any, idx: number) => (
-              <div
-                key={`${ryuTab}-hl-${idx}`}
-                className="spotlight-card animate-stagger"
-                style={{ animationDelay: `${idx * 80 + 300}ms` }}
-              >
-                <div className="spotlight-content h-full">
-                  <h5 className="font-semibold text-white/80 text-sm mb-1.5">{highlight.key}</h5>
-                  <p className="text-white/35 text-xs leading-relaxed">{highlight.val}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+
 
         {/* Presentation */}
         <footer className="relative p-8 md:p-12 rounded-2xl border border-white/[0.06] bg-white/[0.015] text-center overflow-hidden">
