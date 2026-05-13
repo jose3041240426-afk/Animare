@@ -148,13 +148,13 @@ export const projects = [
         tech: {
           backend: ["Supabase (PostgreSQL)", "Sincronización Cloud", "Gestión de Egresos", "IA de Asistencia"],
           backendImages: [
-            { name: "Supabase", url: "https://swimlane.com/wp-content/uploads/2022/07/supabase-logo-icon.png" },
+            { name: "Supabase", url: "https://monkedo-static.s3.eu-central-1.amazonaws.com/component-icons/supabase.png" },
             { name: "PostgreSQL", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" }
           ],
           frontend: ["React Native (Expo)", "Interfaz Táctil Bento-style", "Navegación Intuitiva", "Multiplataforma"],
           frontendImages: [
             { name: "React Native", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" },
-            { name: "Expo", url: "https://static.expo.dev/static/brand/logo-512x512.png" }
+            { name: "Expo", url: "https://images.icon-icons.com/2389/PNG/512/expo_logo_icon_145293.png" }
           ],
           external: ["Impresión Térmica BT", "Generador de Tickets PDF", "Reportes de Venta"],
           externalImages: [],
@@ -214,15 +214,15 @@ export const projects = [
         tech: {
           backend: ["Supabase (PostgreSQL)", "DeepSeek AI (Analista)", "Business Logic Helpers"],
           backendImages: [
-            { name: "Supabase", url: "https://swimlane.com/wp-content/uploads/2022/07/supabase-logo-icon.png" },
+            { name: "Supabase", url: "https://monkedo-static.s3.eu-central-1.amazonaws.com/component-icons/supabase.png" },
             { name: "PostgreSQL", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" }
           ],
           frontend: ["React Native (Expo)", "React Native Chart Kit", "Custom Modern Tab Bar", "Bento-style UI"],
           frontendImages: [
             { name: "React Native", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" },
-            { name: "Expo", url: "https://static.expo.dev/static/brand/logo-512x512.png" }
+            { name: "Expo", url: "https://images.icon-icons.com/2389/PNG/512/expo_logo_icon_145293.png" }
           ],
-          external: ["Analítica Financiera IA", "Gestión de Impresión BT", "Reportes en Tiempo Real"],
+          external: ["Analítica Financiera IA", "Reportes en Tiempo Real"],
           externalImages: [],
           security: ["Auth Supabase", "Segregación de Roles", "Cifrado de Datos"]
         },
@@ -242,11 +242,6 @@ export const projects = [
             video: null,
             features: ["Agrupación cronológica de pedidos", "Detalle de items y notas", "Filtro rápido por fecha con scroll horizontal"]
           },
-          {
-            name: "4. Gestión de Impresión",
-            video: null,
-            features: ["Conectividad Bluetooth", "Generación de tickets administrativos", "Búsqueda de hardware térmico"]
-          }
         ],
         technicalHighlights: [
           { key: "Data Transformation", val: "chartHelpers procesa datos crudos de Supabase en visualizaciones legibles." },
